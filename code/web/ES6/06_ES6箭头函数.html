@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+    <script>
+        /*
+            ES6 的箭头函数
+             + ES6 语法中定义函数的一种方式
+             + 只能用来定义函数表达式（匿名函数）
+              => 当你把函数当做一个值赋值给另一个内容的时候，叫做函数表达式
+              => var xxx = function(){}
+              => var obj = {xxx： function (){}}
+              => xxx.onclick = function (){}
+              => xxx.addEventListener('click',function (){})
+              => xxx.forEach(function (){})
+              => setTimeout(function (){},1000)
+              => .......
+             + 注意：声明式函数不行
+              => function fn(){}
+             + 语法：() => {}
+              -> ()是写形参的位置
+              -> =>是箭头函数的标志
+              -> {}是书写代码段的位置
+
+            箭头函数的特点：
+             1.可以省略小括号不写
+              => 当你的形参只有一个的时候，可以不写小括号
+              => 如果你的形参没有或两个以上，必须写小括号
+             2.可以省略大括号不写
+              => 当你的代码只有一句话的时候，可以省略大括号不写
+             3.箭头函数内没有arguments（所有实参的集合）
+              => 箭头函数内天生不带有 arguments
+              => 没有所有实参的集合
+             4.箭头函数内没有 this
+              => 官方：外部作用域的 this
+              => 私人：书写在箭头函数的外面那个函数 this 是谁，箭头函数内的 this 就是谁
+              也就是说，箭头函数不保存该保存的 this ，它的 this 是它外部函数的 this
+        */
+
+        // 写一个箭头函数
+        var fn = function (){console.log('我是一个函数')}
+        var fun = ()=>{console.log('我也是一个函数')}
+        fn()
+        fun()
+
+        var box = document.querySelector('div')
+
+        box.onclick = function (){
+            let fn = ()=>{
+                cosole.log(this)
+            }
+        
+        }
+
+        // box.onclick = ()=>{
+        //     console.log(this)
+        // }
+
+    </script>
+</body>
+</html>

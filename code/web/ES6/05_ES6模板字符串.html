@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+            ES6 的模板字符串
+             + ES6 提供的一种定义字符串的方式
+             + 使用 反引号（``）来进行字符串的定义
+             + 和 单引号（''）或者 双引号（""）定义的字符串没有区别，使用上是一样的
+             + 只是当你使用 反引号（``）定义的时候，会有特殊的能力
+              1. 可以打印 换行
+              2. 可以直接在字符串内 解析变量
+               => 当你需要解析变量的时候，书写 ${ 变量 }
+             + 注意：
+              => ${} 外面的空格是真实在字符串内的空格
+              => ${} 里面的空格是代码的空格，和字符串没有关系
+        */
+       var num = 10
+       console.log(`num = ${ num }`)
+    </script>
+</body>
+</html>

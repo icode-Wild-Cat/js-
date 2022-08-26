@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        div {
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+            position: absolute;
+            left: 100px;
+            top: 0;
+        }
+        p {
+            width: 100px;
+            height: 100px;
+            background-color: skyblue;
+            position: absolute;
+            left: 0;
+            top: 100px;
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+    <p></p>
+    <script>
+        /*
+            运动函数第二版
+            问题：如果我的元素起始位置不是 0 ？
+             => 因为我在封装的时候，distance 起始始终是 0 
+             => 不管你元素的开始位置是什么
+             => 运动的开始位置一定是 0 
+
+            解决：
+             => 再加一个参数
+              -> 不好
+              -> ***尽量不添加参数***
+             => 直接去拿到元素的开始位置
+              -> 当元素需要运动的是 left 属性
+              -> 只要在元素开始运动之前，把元素本身的 left 属性拿到
+              -> 把我拿到的初始值，当做 distance 的初始值
+
+        问题：如何获取元素的初始位置？
+         => 获取元素的 非行内 样式 left
+         => 标准浏览器：window.getComputedstyle(元素).样式名
+         => 注意：你拿到的值是带有单位的 px，不要忘记使用 parseInt()
+
+            *** parseInt()
+                 + 数据类型转换 - 转数值
+                  1. Number()
+                  2. parseInt()
+                  3. parseF;oat()
+                  4. 非加法的数学运算
+
+                 + 语法： parseInt(数据)
+                 + 返回值： 把数据转换成数值后的结果
+                 + 转换规则
+                  => 一位一位的看待
+                  => 如果第一位就不是合法数字，你们就是 NaN
+                  => 如果第一位是合法数字，那么保留，接着看第二位
+                  => 以此类推，直到不是合法数字的位置为止
+
+
+            
+        */
+
+        // 1.准备一个函数
+        function move(ele,type,target) {
+            // distance 应该使用的就是元素本身设置的 left 的值
+            // 去掉单位 px
+            
+            let distance = parseInt(window.getComputedStyle(ele)[type])
+            console.log(distance)
+            const timer = setInterval(()=>{
+                distance += 5
+                ele.style[type] = distance + 'px'
+                if(distance>=target)clearInterval(timer)
+            },20)
+
+        }
+
+
+        const box = document.querySelector('div')
+     
+      
+
+        box.onclick = function () {
+
+            move(box,'left',400)
+        }
+       
+    </script>
+</body>
+</html>

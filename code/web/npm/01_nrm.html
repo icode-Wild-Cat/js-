@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    /*
+		nrm
+		 + 是一个工具
+		 + 专门管理 npm	这个工具的下载地址的（ 默认 npm 下载地址是*国外* ）
+		 + 程序员给 下载地址 这个玩意起了一个名字：镜像源地址
+
+		下载：
+		 + 是一个全局工具（凡是安装全局工具，目录无所谓），一个电脑只需要下载一次
+		 + 也是一个基于 node 环境使用的工具
+		 + 可以使用 npm 来下载 nrm 工具
+		 + 打开命令行，目录无所谓（凡是安装全局工具，目录无所谓）
+		 + 输入指令：
+		  => win：npm install --global nrm（npm i -g nrm）
+		  => os：sudo npm install --global nrm
+		检测：
+		 + 打开命令行，目录无所谓
+		 + 输入指令：nrm --version（nrm -V）
+		卸载：
+		 + 打开命令行，目录无所谓
+		 + 输入指令：
+		 	=> win：npm uninstall --global nrm
+			=> os：sudo npm uninstall --global nrm
+		首次下载：
+		 + 最新版本的 nrm 出现一些问题
+		 + 需要对 nrm 进行一些修改
+		 + 找到 nrm 的安装目录下找到 cli.js 文件第17行
+		 + 把17行代码改为
+		  => .............（网上找）
+
+		nrm 的常用指令
+		 1、检测所有镜像源地址的网络延迟
+		  + 打开命令行，目录无所谓
+		  + 输入指令： nrm test
+		  =>  npm ------ 953ms
+			  yarn ----- 991ms
+			  tencent -- 311ms
+			  cnpm ----- 656ms
+			* taobao --- 249ms
+			  npmMirror - 1118ms
+		  + 前面带星号的表示你当前使用的镜像源地址
+		 2.切换镜像源地址
+		  + 打开命令行，目录无所谓
+		  + 输入指令： nrm use 镜像源地址名称
+		  + 作用：切换 npm 下载第三方包的镜像源地址
+    */
+  </script>
+</body>
+</html>

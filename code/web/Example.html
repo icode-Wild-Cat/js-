@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- <style>
+        body {
+            height: 3000px;
+            width: 3000px;
+        }
+        .header{
+            width: 100%;
+            height: 60px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+            background-color: skyblue;
+            font-size: 40px;
+
+            position: fixed;
+            top: -60px;
+            left: 0;
+
+            transition: top .5s linear;
+    </style> -->
+</head>
+<body>
+    
+    <!-- <button id="btn" style="position: fixed;bottom: 30px;right: 30px;">走你</button> -->
+    <!-- <div name="header">
+
+    </div>
+
+    <script>
+        // btn.onclick = function(){
+        //     /*window.scrollTo(0,0)//直达，没有平滑效果*/
+        //     window.scrollTo({
+        //         top:300,
+        //         left:1000,
+        //         behavior:'smooth'
+        //     })
+        // }
+            
+    </script> -->
+
+    <!--***案例：切换查看密码***-->
+    <!-- 密码：<input type="password"><button>查看密码</button>
+
+    <script>
+        var btn = document.querySelector('button')
+        var ipt = document.querySelector('input')
+        btn.onclick = function(){
+            console.log('查看密码')
+            ipt.type === 'password' ? ipt.type = 'text' : ipt.type = 'password'
+        }
+    </script> -->
+
+    <!--***案例：全选***-->
+    <!-- <form action="">
+        <input type="checkbox">全选<br/>
+        <hr/>
+        <input type="checkbox">选项1<br/>
+        <input type="checkbox">选项2<br/>
+        <input type="checkbox">选项3<br/>
+        <input type="checkbox">选项4<br/>
+    </form>
+    <script>
+        //1.获取元素
+        var allBtn = document.querySelector('input')
+        var btns = document.querySelectorAll('input:nth-child(n+2)')
+        //2-1.绑定点击事件
+        allBtn.onclick = function(){
+
+            //3-1.给每一个选项按钮绑定点击事件
+            btns.forEach(function(item){
+                item.onclick = function() {
+                    //3-2.判断选中的选项按钮的数量
+                    var count = 0
+                    //遍历 btns ，拿到每一个
+                    btns.forEach(function(t){
+                        //判断，如果 t 的 checked 为 true ，计算器++
+                        if(t.checked)count++
+                    })
+                    console.log(count)
+                }
+
+
+            })
+        }
+       
+    </script> -->
+
+    <!---***案例：全选***-->
+    <div class="box" style="
+    padding: 20px;
+    border: 1px solid #333;
+    border-radius: 10px;
+    width: 100px; 
+    margin: 50px auto;">
+        <input type="checkbox">全选<br/>
+        <hr/>
+        <input type="checkbox">选项一<br/>
+        <input type="checkbox">选项二<br/>
+        <input type="checkbox">选项三<br/>
+        <input type="checkbox">选项四<br/>
+    </div>
+    <script>
+        /*
+            案例 - 全选
+
+            需求：
+                1.点击全选按钮的复选框的时候
+                => 如果全选按钮是选中状态，那么每一个选项都是选中
+                => 如果全选按钮是未选中状态，那么每一个选项都是未选中
+                2.每一个选项按钮点击的时候
+                => 都有可能影响全选按钮的选中状态
+                => 当点击任何一个选项按钮时
+                    -> 如果所有选项按钮都是选中状态时，那么全选按钮选中
+                    -> 只要有任何一个选项未选中，全选按钮就未选中
+
+            分析：
+            + 任何修改一个按钮的选中状态 ？
+            => 使用原生属性 checked 设置为 true 或者 false
+            => 来决定是否选中
+
+            代码实现：
+            1.获取元素
+            => 全选按钮：因为需要点击事件
+            => 所有的选项按钮：因为每一个都需要修改
+                一个一个获取，还是成组获取
+            2.点击全选按钮的复选框时：
+                2-1.给 全选 按钮绑定点击事件
+                2-2.拿到这个全选按钮的选中状态
+                2-3.给 btns 内的每一个 input 设置属性
+                    -> 当我自己是 true 时，给他们都设置为 true
+                    -> 当我自己是 false 时，给他们设置为 false 
+            3.每一个选项按钮点击的时候
+                3-1.给每一个选项按钮绑定点击事件
+        */
+       //1.获取元素
+        var allBtn = document.querySelector('input')
+        var btns = document.querySelectorAll('input:nth-child(n+2)')
+
+        //2-1.绑定点击事件
+        allBtn.onclick = function(){
+            
+            //3-1.给每一个选项按钮绑定点击事件
+            btns.forEach(function(item){
+                item.checked = allBtn.checked
+                item.onclick = function(){
+                    //3-2.判断选中的选项按钮的数量
+                    var count = 0
+                    //遍历 btns ，拿到每一个
+                    btns.forEach(function(t){
+                        //判断，如果 t 的 checked 为 true，count++
+                        if(t.checked) count++
+                    })
+                    console.log(count)
+
+                    allBtn.checked = count == 4
+
+                }
+            })
+        }
+        
+    </script>
+</body>
+</html>

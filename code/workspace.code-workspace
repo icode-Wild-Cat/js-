@@ -1,0 +1,11 @@
+{
+    "folders": [
+        {
+            "path": "web"
+        }
+    ],
+    "settings": {
+        "commentTranslate.targetLanguage": "zh-CN",
+        "liveServer.settings.port": 5501
+    }
+}

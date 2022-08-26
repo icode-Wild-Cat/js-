@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        ul {
+            width: 1000px;
+            height: 1000px;
+            background-color: pink;
+        }
+        li {
+            width: 50px;
+            height: 50px;
+            float: left;
+            margin: 5px;
+            background-color: skyblue;
+        }
+    </style>
+</head>
+<body>
+    <button>添加一个 li</button>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+    </ul>
+    <script>
+        /*
+            需求：
+            + 页面上有 若干个 li ，点击每一个 li 在控制台输出该 li 的文本内容
+            + 有一个 button 按钮，点击的时候，可以创建一个 li 插入到页面中
+
+            循环绑定事件 :
+                => 一种给多个元素绑定事件的方式
+                => 缺点： 
+                    -> 对于动态添加的元素（后期渲染的元素），不够友好
+                    -> 大量操作 DOM
+
+            事件委托来完成：
+                => 因为需求是点击 li 的时候，做一些事情
+                => 因为事件的传播，如果我给 结构父级 身上绑定一个 点击事件
+                => 也会因为点击 li 而触发
+                => 例子：给 ul 绑定一个点击事件 
+                 -> 点击 ul 会触发
+                 -> 点击 li 会触发
+                => 在事件对象中有一个信息叫做 事件目标
+                 -> 准确触发事件的那个元素
+                 -> 如果我是因为点击 ul 触发的事件，事件目标就是 ul 
+                 -> 如果我是因为点击 li 触发的事件，事件目标就是 li
+                => 可以通过判断事件目标来确定我点击的是 li
+                => 原则：
+                    -> 尽可能找到距离最近的父级
+                    -> 尽可能找到在页面上不动的元素来委托
+        */
+
+        //0、获取 ul 标签
+        // 因为 ul 是所有 li 共同的父级结构
+        var ul = document.querySelector('ul')
+
+        //1、给 ul 绑定点击事件 
+        ul.onclick = function(e){
+            //处理事件对象兼容问题
+            e = e || window.event
+            //处理事件目标兼容
+            var target = e.target || e.srcElement
+            // console.log(target)
+            //判断你点击的确实是 li
+            if(target.nodeName === 'LI')
+                // 在控制台上打印你点击的这个 li 的文本内容
+               console.log(target.innerText)
+        }
+
+        //点击 button 按钮生成 li
+        var btn = document.querySelector('button')
+
+        btn.onclick = function(){
+            var li = document.createElement('li')
+            li.innerText = '我是新来的'
+
+            ul.appendChild(li)
+        }
+
+    
+
+
+
+
+
+
+
+
+
+
+    //    //1.获取所有 li ，添加点击事件
+    //    var lis = document.querySelectorAll('li')
+    //    lis.forEach(function(item){
+    //        item.onclick = function(){
+    //            console.log(item.innerText)
+    //        }
+    //    })
+    //    //2.获取 button ，添加点击事件
+    //    var btn = document.querySelector('button')
+    //    btn.onclick = function(){
+    //        //创建一个 li 标签
+    //        var newLi = document.createElement('li')
+    //        newLi.innerText = '我是新来的'
+
+    //        //给新添加的 li 添加点击事件
+    //        newLi.onclick = function(){
+    //             console.log(this.innerText)
+    //        }
+
+    //        //把新建的 li 添加到 ul 中
+    //        var ul = document.querySelector('ul')
+    //        ul.appendChild(newLi)
+    //    }
+    </script>
+</body>
+</html>

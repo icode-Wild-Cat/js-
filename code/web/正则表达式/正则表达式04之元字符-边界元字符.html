@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+            元字符 - 边界元字符
+
+            1. ^ 表示 字符串的开始
+            2. $ 表示 字符串的结尾
+        */
+
+        //1. ^ 
+        // var reg1 = /\d/ //表示字符串中至少包含一位 数字
+        // var reg2 = /^\d/ //表示字符串必须以 数字 开头
+        // console.log(reg2.test('11wsafe'))
+
+        //2. &
+        // var reg1 = /\d/ //表示字符串中至少包含一位 数字
+        // var reg2 = /\d$/ //表示字符串必须以 数字 结尾
+        // console.log(reg1,'as1d',reg1.test('as1d')) 
+        // console.log(reg2,'asd1',reg2.test('asd1'))
+
+        //问题：
+        //规则：字符串开头 一位数字 字符串结尾
+        // var reg = /^\d$/
+        // console.log(reg.test('1')) //输出 true
+    
+        // console.log(reg.test('1a2')) //输出 false
+        // var reg1 = /^\da\d$/
+        // console.log("reg1(/^\da\d$/).test('1a2'):",reg1.test('1a2'))
+
+        // console.log(reg.test('12')) //输出 false
+        // var reg2 = /^\d\d$/
+        // console.log('reg2(/^\d\d$/).test("12")',reg2.test('12'))  
+
+
+        //问题：
+        //需求：验证一个 18 位的省份证号码，不考虑最后一位是 字母
+        var reg = /^\d\d\d\d\d\d\d\d\d\d\d\d\d\d\d\d\d\d$/
+        //重复输入 \d 效率不高，有更好的办法
+
+    </script>
+</body>
+</html>

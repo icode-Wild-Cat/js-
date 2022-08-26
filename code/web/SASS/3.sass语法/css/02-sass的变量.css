@@ -1,0 +1,50 @@
+@charset "UTF-8";
+/*
+  sass 的变量
+   + 在 sass 内是可以定义变量的
+   + 定义和使用
+
+  变量的定义
+   => 语法: $名字:值;
+   => 注意：
+    -> $ 是名字的一部分
+    -> 没有等于号，而是 冒号（:）
+    -> 值不管是什么，不需要引号
+   => 定义的变量是不会被解析出来的
+    -> 只有你使用这个变量的时候
+    -> 会直接把值解析出来
+
+  变量的使用
+   => 使用在值的位置
+    -> 直接使用就可以了
+   => 使用在选择器的位置
+    -> 不能直接使用
+    -> 需要使用变量，需要写变量
+
+
+*/
+div {
+  background-color: red;
+}
+
+p {
+  color: red;
+}
+
+h1 {
+  border: 1px solid red;
+}
+
+h2 {
+  border: 1px solid #333;
+}
+
+li:nth-child(10) {
+  color: red;
+}
+
+.box.red {
+  font-size: 10px;
+}
+
+/*# sourceMappingURL=02-sass%E7%9A%84%E5%8F%98%E9%87%8F.css.map */

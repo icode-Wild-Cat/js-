@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+            认识正则表达式 - RegExp
+            + JS 中的数据类型，是一个复杂数据类型、
+            + 作用：专门用来验证字符串是否符合规则
+
+            如何创建一个正则表达式
+             1.字面量方式创建
+                => 语法：var reg = /abcd/
+             2.内置构造函数创建
+                => 语法：var reg = new RegExp('abcd')
+
+            两种创建方式的区别：
+            + 先欠着
+
+
+        */
+
+        //1.字面量方式创建
+        //意思：当你使用这个 rog 正则去验证字符串的时候，要求字符串中必须包含 abcd 这个字符片段
+        //验证：'asdwefabcdasdwsd' true
+        //验证：'gfhdatghbrcfdght' false
+        var reg = /abcd/
+        console.log(reg)
+
+        //2.内置构造函数创建
+        var reg2 = new RegExp('abcd')
+        console.log(reg2)
+
+        console.log(reg === reg2)
+        //输出 false，因为 RegExp 是复杂数据类型
+
+    </script>
+</body>
+</html>

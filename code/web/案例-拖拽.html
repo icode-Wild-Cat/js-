@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+            
+            position: absolute;
+        }
+    </style>
+    <!--position必须为 absolute 即绝对位置-->
+</head>
+<body>
+    <div></div>
+    <script>
+
+        //事件移动事件处理函数开关
+        var flag = false 
+        var div = document.querySelector('div')
+        
+
+        //鼠标按下事件
+        div.onmousedown = function(){
+
+            //当鼠标按下时，开关打开
+            flag = true 
+        }
+        //鼠标移动事件
+        //为解决光标移出到 div 外面而终结鼠标移动事件，把鼠标移动事件绑定到 div 的上级元素去，我们绑到 document 上去
+        document.onmousemove = function(e){
+
+            //判断开关为 flase ，直接返回
+            if(flag === false) return
+
+            var x = e.clientX - 100
+            var y = e.clientY - 100
+
+          //div 跟着光标的移动而移动
+          e = e || window.event
+          div.style.left = x + 'px'
+          div.style.top = y + 'px'
+
+        }
+        div.onmouseup = function(){
+
+            //当鼠标松开时，开关关闭
+            flag = false
+        }
+    </script>
+</body>
+</html>

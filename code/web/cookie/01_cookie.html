@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+            cookie
+             + 客户端的一个存储空间
+
+            cookie 的特点
+             1. 按照域名存储的
+              + 哪一个域名存储起来，哪一个域名使用
+             2. 必须依赖服务器
+              + 本地打开的页面是无法存取 cookie
+             3. cookie 的时效性
+              + 默认是 会话级别的，关闭浏览器就没有了
+              + 可以手动设置时效
+              + 手动设置的时候，和你是否关闭电脑，是否关闭浏览器没有关系
+             4. cookie 存储格式
+              + 一条 cookie 的存储格式是 key=value
+              + 多条 cookie 的存储格式是 key1=value1; key2=value2; key3=value3
+             5. cookie 空间的存储大小
+              + 4KB 左右
+              + 50 条左右
+             6. 请求的自动携带
+              + 当你的 cookie 空间中有数据的时候
+              + 只要你在当前域名发起任何请求，都会在请求头中自动把 cookie 空间内的所有数据携带过去
+             7. 前后端操作
+              + 前端可以通过 JS 操作 存取
+              + 任何一个后端语言都可以操作 存取
+
+        本地存储之间的区别（重点）
+         1. 出现时间
+          => cookie 是一直有
+          => localStorage/sessionStorage 是 H5 标准下才有的
+         2. 存储大小
+          => cookie 大概是 4KB 左右
+          => localStorage/sessionStorage 大概是 20MB 左右
+         3. 时效性
+          => cookie 默认是会话级别，可以手动设置
+          => localStorage/sessionStorage 有浏览器 API 固定好不能手动设置
+           -> localStorage 就是永久存储
+           -> sessionStorage 就是会话存储
+
+         4. 请求携带
+          => cookie 内存储的数据会自动携带在请求头
+          => localStorage/sessionStorage 不会自动携带，需要手动设置
+
+         5. 操作
+          => cookie 是可以前后端操作的
+          => localStorage/sessionStorage 只能前端操作，后端语言不能操作
+        扩展：在任何服务端语言内有一个 服务器存储空间 叫做 session
+          */
+    </script>
+</body>
+</html>

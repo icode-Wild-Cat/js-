@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+            正则的两个特性
+
+            1.懒惰性
+             => 每一次捕获都是从原始字符串的索引 0 开始检索
+             => 解决：使用全局标识符 g
+
+            2.贪婪性
+             => 贪婪匹配（默认贪婪匹配）：  能拿多少拿多少    尽可能多的匹配内容
+             => 非贪婪匹配： 能拿到多少拿多少  尽可能少的匹配内容
+              -> 需要使用非贪婪限定符
+              -> 在原先的限定符后面再写一个 '?'
+              -> *? 0 ~ 多次，但是 0 次能解决问题，就不再多
+              -> +？1 ~ 多次，但是 1 次能解决问题，就不再多
+              -> ?? 0 ~ 1次，但是 0 次能解决问题，就不去管一次
+              -> {n,}?
+              -> {n,m}?
+        */
+
+        //2.正则的贪婪性
+        var str = '<p class="box">你好 世界</p><span>hello world</span>'
+        //这里使用的是 + ，表示 1 ~ 多次
+        var reg = /<.+>/
+        console.log(reg.exec(str))
+        var reg1 = /<.+?>/
+        console.log(reg1.exec(str))
+    </script>
+</body>
+</html>

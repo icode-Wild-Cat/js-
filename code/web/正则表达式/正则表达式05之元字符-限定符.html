@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=\, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+            元字符 - 限定符
+             + 注意：一个限定符只能修饰符号前面的一个呢欧荣出现的次数
+
+            1. *      表示出现 0 ~ 多次
+            2. +      表示出现 1 ~ 多次
+            3. ?      表示出现 0 ~ 1次
+            4. {n}    表示出现 指定 n次
+            5. {n,}   表示出现 至少 n次
+                => {0,} 等价于 *
+                => {1,} 等价于 +
+            6. {n,m}  表示出现 n ~ m次
+                => {0,1} 等价于 ？
+        */
+
+        //1. * 0 ~ 多次
+        // 表示字符串从头到尾数字至少出现 0 次
+        // var reg = /^\d*$/
+        // console.log(reg.test(''))
+        // console.log(reg.test('1'))
+        // console.log(reg.test('12'))
+        // console.log(reg.test('123'))
+        // console.log(reg.test('1234'))
+        // console.log(reg.test('12345'))
+
+        //4. {n} n次
+        //可以解决前面18位身份证问题
+        // var reg = /^\d{18}$/
+        // console.log(reg.test('362322200101016613'))
+
+
+        // 问题：
+        var reg = /^a{2}b{2}c{2}$/
+        console.log(reg.test('aabbcc'))
+        console.log(/^abc{2}$/.test('abcc'))
+        console.log(reg.test('abcabc'))
+    </script>
+</body>
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *  {
+            margin: 0;
+            padding: 0;
+        }
+
+        .box {
+            width: 600px;
+            height: 350px;
+            border: 10px solid pink;
+            margin: 30px auto;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .box > ul {
+            height: 80px;
+            display: flex;
+        }
+
+        .box > ul > li {
+            flex: 1;
+            background-color: skyblue;
+            color: #fff;
+            font-size: 34px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .box > ul > li.active {
+            background-color: orange;
+        }
+
+        .box > ol {
+            flex: 1;
+            position: relative;
+        }
+
+        .box > ol > li {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            left: 0;
+            top: 0;
+            display: none;
+            justify-content: center;
+            background-color: purple;
+            color: #fff;
+            font-size: 100px;
+        }
+
+        .box > ol > li:active {
+            display: flex;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <ul>
+            <li class="active">1</li>
+            <li>2</li>
+            <li>3</li>
+        </ul>
+        <ol>
+            <li class="active">1</li>
+            <li>2</li>
+            <li>3</li>
+        </ol>
+    </div>
+
+    <script>
+        /*
+            面向过程的选项卡
+        */
+
+        // 1.获取元素
+        const btns =  document.querySelector('ul > li')
+        const boxs = document.querySelector('ol > li')
+
+        // 2.循环遍历 btns
+        btns.forEach((item,index)=>{
+            // 给每一个绑定点击事件
+            item.onclick = ()=>{
+            // 3.让 btns 和 boxs 内的所有内容都没有 active
+            for(let i=0;i<btns.length;i++){
+                btns[i].className = boxs[i].className = ''
+            }
+
+            // 4.让索引配套的哪一个有类名
+            btns[index].className = boxs[index].className = 'active'
+            }
+        })
+    </script>
+</body>
+</html>

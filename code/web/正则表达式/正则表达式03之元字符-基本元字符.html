@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>/*
+        正则表达式的符号 - 基本元字符
+
+        正则表达式的组成部分
+         1.元字符
+            => 所有的文本内容
+            => 特殊符号，用符号表示一类内容
+         2.标识符
+
+         基本元字符
+         1. \d 表示一位 数字
+         2. \D 表示一位 非数字
+         3. \s 表示一位 空白内容（空格/缩进/制表符/....）
+         4. \S 表示一位 非空白内容
+         5. \w 表示一位 数字（0-9）、字母（a-z，A-Z）、下划线（_）中任意一个
+         6. \W 表示一位 非数字字母下划线 任意一位
+         7. . 表示一位 非换行 内容
+         8. \ 表示 转义符
+            -> 把有意义的字符转换成没有意义的普通字符
+            -> 把没意义的字符转换成有意义的字符
+
+    */
+
+    //1. \d
+    //意义： 字符串中必须至少包含一位 数字 (0-9)
+    // var reg = /\d/
+    // var str = 'sadw4dwa'
+    // console.log(reg.test(str))
+
+    //2. \D
+    // 意义：字符串中必须至少包含一位 非数字 内容
+    // var reg = /\D/
+    // var str = '12334s'
+    // console.log(reg.test(str))
+
+    //3. \s
+    //意义：字符串中必须至少包含一位 空白内容 
+    // var reg = /\s/
+    // var str = 'axs ad'
+    // console.log(reg.test(str))
+
+    //4. \S
+    //意义：字符串中必须至少包含一位 非空白内容 
+
+    //7. .
+    //意义：表示字符串中至少包含一个非换行的内容
+    // var reg = /./
+    // var str = 'sd\n'
+    // console.log(reg.test(str))
+
+
+    //小问题
+    //我需要检测一个 小数
+    // var reg = /\d.\d/
+    // var str = '1.5'
+    // console.log(reg.test(str))
+//解决：
+    //8. \
+    //本身 点（.）是有特殊意义的，但是和 \ 连在一起书写
+    // \ 把 点（.）转换成没有意义的 文本 了
+    var reg = /\d\.\d/
+    var str = '1.5'
+    console.log(reg.test(str))
+</script>
+    
+</body>
+</html>

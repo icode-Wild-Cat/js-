@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img {
+            width: 200px;
+            height: 200px;
+            cursor: pointer;
+        }
+        body {
+            background-image: url(https://img0.baidu.com/it/u=3798217922,3880088897&fm=253&app=120&size=w931&n=0&f=JPEG&fmt=auto?sec=1657126800&t=9213342506d6cdf2a02b5e97ea87c2a2);
+            background-repeat: no-repeat;
+            background-size: 100%;
+        }
+    </style>
+</head>
+<body>
+    <img src="https://img0.baidu.com/it/u=3798217922,3880088897&fm=253&app=120&size=w931&n=0&f=JPEG&fmt=auto?sec=1657126800&t=9213342506d6cdf2a02b5e97ea87c2a2">
+    <img src="https://img1.baidu.com/it/u=3569420573,2690721824&fm=253&app=120&size=w931&n=0&f=JPEG&fmt=auto?sec=1657126800&t=f14f25968dfe7f1cde3f4836e4a5972f">
+    <img src="https://img0.baidu.com/it/u=8212649,2817595929&fm=253&app=138&size=w931&n=0&f=JPEG&fmt=auto?sec=1657126800&t=bb7c5e00dfc054a8d275c1f64aedce2a">
+
+    <script>
+        /*案例 - 网页换肤
+        需求：
+            + 每一个图片点击的时候
+            + 能把整个页面的背景图片跟换成对应的图片
+
+        分析：
+            + 问题1：如何修改整个页面的背景图片 ？
+            => 给 body 标签设置 backgroundImage 样式
+            => 你需要修改成哪一个背景图片，就改成什么
+
+        代码实现:
+        1.获取元素
+        => img：获取一个还是一组
+            -> 一组：因为每一个 img 标签都有点击事件
+            -> 点击的时候都可以切换图片
+        => body: 因为要设置它的 背景图片 样式
+        2.给每一个 img 标签绑定点击事件
+            => 循环遍历 imgs，给每一个添加点击事件
+        3.修改body的 背景图片了
+            3-1.拿到你点击的这一个 img 标签的 src 属性值
+                => 因为这个 src 属性的值上面记录的就是该图片的地址 
+
+
+        
+        */
+
+        //1.获取元素
+        var imgs = document.querySelectorAll('img')
+        console.log(imgs)
+        var body = document.body
+        //2.forEach遍历 imgs
+        // imgs.forEach(function(item){
+        //     //item 就是每一个 img 标签
+        //     //2-2.给每一个 img 绑定点击事件
+        //     item.onclick = function(){
+        //         //3-1.拿到你点击的这个 img 标签的 src 属性
+        //         // src 是原生属性
+        //         //你点击的这个 img 标签是什么？
+        //         var url = item.src
+        //         console.log(url)
+        //         //3-2.给 背景图片 赋值
+        //         body.style.backgroundImage = 'url('+url+')'
+        //     }
+        // })
+        //2.for循环遍历 imgs 
+        for(var i=0;i<imgs.length;i++){
+            //2-2.给每一个 img 添加点击事件
+            imgs[i].onclick = function(){
+            //3-1.拿到你当前点击的这一个 img 的 scr 属性
+            // 可以使用一个 this 关键字
+            // 在事件处理函数内，this 就是绑定事件的这个元素
+            console.log(this)
+            var url = this.src
+            
+            console.log(url)
+            //3-2.给 body 赋值
+            body.style.backgroundImage = 'url(' + url +')'
+            }
+        }
+        var arr = [1,2,3,4]
+        console.log(arr)
+    </script>
+</body>
+</html>

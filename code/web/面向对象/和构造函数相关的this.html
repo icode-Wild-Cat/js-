@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*  
+            和构造函数相关的 this
+             1.构造函数体内的 this
+              => 因为和 new 关键字连用
+              => this 指向 当前实例
+             2.原型上的方法体内的 this
+              => 因为原型上的方法是被实例调用
+              => this 指向 当前实例
+            
+            
+            复习：this 指向
+             + 当 this 指向使用在函数内的时候，不管函数定义在哪，不管函数如何定义
+             + ***只看函数的调用方式***（箭头函数除外）
+            1.普通调用
+             => 函数名()
+             => this 指向 window
+            2.对象调用
+             => 对象.函数名()
+             => this 指向该对象
+            3.定时器处理函数
+             => setTimeout(函数，时间)
+             => setInterval(函数，时间)
+             => this 指向 window
+            4.事件处理函数
+             => 事件源.on事件类型 = 函数
+             => 事件源.addEventLister('事件类型'，函数)
+             => this 指向 事件源（谁身上的事件）
+            5.自执行函数
+             => this 指向 window
+            6。箭头函数
+             => 本身没有 this 
+             => this 指向外部函数的 this
+            7.构造函数
+             => new 函数名()
+             => this 指向 当前实例（new 前面定义的那个变量）
+             => 本质：构造函数内自动创建出来的那个对象 
+            
+        */
+       function Person(name) {
+           this.name = name
+
+        //    console.log('构造函数内的打印')
+        //    console.log('this: ',this)
+        //    console.log('--------------------')
+       }
+       Person.prototype.sayHi = function () {
+           console.log('我是原型上的 sayHi 方法')
+           console.log('this: ',this)
+           console.log('----------------------')
+
+       }
+       const p1 = new Person('zhangsan')
+    //    console.log(p1)
+       console.log(Person)
+       console.log('---------------')
+       p1.sayHi()
+    </script>
+</body>
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+        <li>6</li>
+        <li>7</li>
+        <li>8</li>
+        <li>9</li>
+        <li>10</li>
+    </ul>
+    <script>
+        /*
+            ES6 的扩展运算符
+             + 展开合并运算符
+             + 有两个意义
+              => 展开
+              => 合并
+             + ...
+              => 主要是操作 数组 和 对象 的运算符号
+
+            1.展开
+             => 可以 展开对象，或者 展开数组
+             => 如果是展开对象，就是去掉对象的 {}
+             => 如果是展开数组，就是去掉数组的 []
+
+            2.合并
+             => 当这个符号书写在函数的形参位置的时候，叫做合并运算符
+             => 从当前形参位置开始获取实参，直到末尾
+             => 注意：合并运算符一定要写在最后一位
+        */
+
+        //1.展开
+        // const a1 = [1,2,3,4,5]
+        // 如果我想在控制台打印 1 2 3 4 5
+        // console.log(1,2,3,4,5)
+        // console.log(...a1)
+
+        // const a2 = [...a1,6,7,8]
+        // console.log(a2)
+
+        // const res = Math.max(...a1)
+        // console.log(res)
+
+        // const lis = [...document.querySelectorAll('li')]
+        // console.log(lis)
+        // const res = lis.filter(item=>item.innerText % 2)
+        // console.log(res)
+
+
+
+        //展开对象
+        // const o1 = {name:'jack',age:18}
+        // const o2 = {
+        //     gender: '男',
+            // name: 'Jack',
+            // age: 18
+        //     ...o1
+        // }
+        // const o3 = {
+        //     ...o2,
+        //     score: 200
+        // }
+        // console.log(o1,o2,o3)
+
+
+        //2.合并
+        //会把第一个实参赋值给 a
+        //从第二个开始到最后的所有实参，全部放在一个数组里面，给到 b
+        // const fn = (a, c, ...b)=>{
+        //     console.log('我是 fn 函数')
+        //     console.log(a, b)
+        // }
+        // fn(1,2,3,4,5,6,7)
+
+        //作用：
+        //  因为箭头函数内没有  arguments
+        //  我们可以使用 ... 合并出一个 arguments
+        const fn = (...arg)=>{
+            console.log(arg)
+        }
+        fn(1,2,3,4,5)
+
+    </script>
+</body>
+</html>

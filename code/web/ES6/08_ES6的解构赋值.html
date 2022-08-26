@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+            ES6 的解构赋值
+             + 快速从对象或者数组中获取一些数据
+             + 分成两类
+              1.解构数组
+              2.解构对象
+
+            1.解构数组（快速从数组中获取数据）
+             => 注意：使用【】解构数组
+             => 语法：var[变量1，变量2，变量3。。。。。] = 数组
+             => 按照索引，依次从数组内给每一个变量赋值
+             => 扩展：解构多维数组
+              -> 数组怎么写，解构怎么写
+
+            2.解构对象（快速从对象中获取数据）
+             => 注意：使用{}解构对象
+             => 语法：var {键名1，键名2，。。} = 对象
+             => 按照键名，依次定义变量从对象中获取指定成员
+             => 解构的时候起一个别名
+              -> 语法：var {键名1：别名，键名2：别名。。。} = 对象
+              -> 注意：当你起了别名以后，原先的键名不能再当做变量名使用了，需要使用这个别名
+        */
+
+        //1.解构数组
+        // const arr = [100,200,300,400,500]
+
+        //需求：单独定义五个变量获取五个数据
+        //原先的方式，不够方便
+        // const a = arr[0]
+        // const b = arr[1]
+        // const c = arr[2]
+        // const d = arr[3]
+        // const e = arr[4]
+        //使用解构获取
+        // const [a,b,c,d,e] = arr
+        // console.log(a,b,c,d,e)
+
+        //1-2.解构多维数组
+        // const arr = [1,2,[3,4,[5,6,[7,8,[9]]]]]
+        // console.log(arr)
+        // 需求：定义变量拿到数据 9
+        // const a = arr[2][2][2][2][0]
+        // console.log(a)
+        //解构
+        // const [a,b,[c,d,[e,f,[g,h,[i]]]]] = arr
+        // console.log(e,i)
+
+
+        //2.解构对象
+        // const obj = {name:'jack',age:18,gender:'男'}
+        // 以前
+        // const name = obj.name
+        // const age = obj.age
+        // const gender = obj.gender
+        // console.log(name,age,gender)
+        //解构
+        // const {name,age,gender} = obj
+        // console.log(name,age,gender)
+
+        // 2-2.解构的时候起一个别名
+        // const {name} = obj 等价于 const name = obj.name
+        // const {name:a} = obj 等价于 const a = obj.name
+        // const {name:a,age:b,gender} = obj
+        // console.log(a,b,gender)
+
+
+        //一号坑
+        // const {age:a} = obj
+        // console.log(a)
+        // console.log(age)
+
+
+        //二号坑
+        // const 定义的常量不能被修改
+        // obj 接受的值是一个 对象数据类型 的地址
+        // 什么情况下才叫做把 obj 的值修改
+        // const obj = {name:'jack'}
+        // obj.name = 'rose'
+        // console.log(obj.name)
+
+
+        //***三号坑*** 
+        // for(var i=0;i<3;i++){
+        //     //异步代码
+        //     setTimeout(()=>{
+        //         console.log(i) 
+        //     },0)
+        // }
+
+        /*
+            全局定义变量 i
+
+            开始循环
+             i == 0
+              => 定义一个定时器，定时器处理函数执行吗？
+              => 向队列内放一个函数 ()=>{console.log(i)}
+             i == 1
+              => 定义一个定时器
+              => 向队列内放一个函数 ()=>{console.log(i)}
+             i == 2
+              => 定义一个定时器
+              => 向队列内放一个函数 ()=>{console.log(i)}
+             i == 3
+              循环结束
+
+            此时所有同步代码执行完毕，才会开始执行异步代码
+             => 直接执行队列内的三个函数
+             => 在控制台打印三次 i
+        */
+
+
+        //三号坑加深
+        //块级作用域
+        for(let i=0;i<3;i++){
+            //异步代码
+            setTimeout(()=>{
+                console.log(i)            
+            },0)
+        }
+        console.log(i)  //报错
+        //依旧会继续打印出 0 1 2
+        //因为定时器的设置，是在报错以前设置的
+
+
+
+
+    </script>
+</body>
+</html>

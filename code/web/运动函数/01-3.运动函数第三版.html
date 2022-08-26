@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        div {
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+            position: absolute;
+            left: 100px;
+            top: 0;
+        }
+        p {
+            width: 100px;
+            height: 100px;
+            background-color: skyblue;
+            position: absolute;
+            left: 0;
+            top: 100px;
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+    <p></p>
+    <script>
+        /*
+            运动函数第二版
+            问题：元素运动的初始值和目标值不一定是 整数 ？
+             => 不容易刚好到达目标位置，可能会差一点
+
+            解决：把每次运动的距离改成 1
+             => 把定时器的事件调整
+
+
+            
+        */
+
+        // 1.准备一个函数
+        function move(ele,type,target) {
+            // distance 应该使用的就是元素本身设置的 left 的值
+            // 去掉单位 px
+            
+            let distance = parseInt(window.getComputedStyle(ele)[type])
+            console.log(distance)
+            const timer = setInterval(()=>{
+                distance += 5
+                ele.style[type] = distance + 'px'
+                if(distance>=target)clearInterval(timer)
+            },20)
+
+        }
+
+
+        const box = document.querySelector('div')
+     
+      
+
+        box.onclick = function () {
+
+            move(box,'left',400)
+        }
+       
+    </script>
+</body>
+</html>

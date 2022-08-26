@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*  
+            对象访问机制：
+             + 当你需要访问一个对象的成员的时候
+             + 首先，会在对象自己本身身上查找，如果有，直接使用，停止查找
+             + 如果没有，会自动去自己的 __proto__ 上查找
+             + 未完待续
+
+            解决：
+             + 把属性书写在构造函数体内
+             + 把方法书写在构造函数的原型上（prototype）
+
+            原型：
+             + 一个函数伴生的存储空间
+             + 专门有构造函数向内添加方法，供构造函数的实例使用
+        */
+
+        function Person() {
+            this.name = 'Jack'
+        }
+
+        Person.prototype.a = 100
+ 
+        const p1 = new Person()
+
+        console.log(p1)
+
+
+    </script>
+</body>
+</html>

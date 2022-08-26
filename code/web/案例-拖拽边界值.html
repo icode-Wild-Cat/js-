@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+    <script>
+        var flag = false
+        var div = document.querySelector('div')
+        div.onmousedown = function(){
+            flag = true
+        }
+        div.onmouseup = function(){
+            flag = false
+        }
+        document.onmousemove = function(e){
+            if(flag === false) return
+            var x = e.clientX - 100
+            var y = e.clientY - 100
+            
+            //50px吸附
+            if(x<=50) x=0
+            if(y<=50) y=0
+            if(x>=document.documentElement.clientWidth-div.offsetWidth-50) 
+            x = document.documentElement.clientWidth-div.offsetWidth
+            if(y>=document.documentElement.clientHeight-div.offsetHeight-50)
+            y = document.documentElement.clientHeight - div.offsetHeight
+
+            div.style.left = x + 'px'
+            div.style.top = y + 'px'
+
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+/*
+  sass 的循环
+
+  1. for 循环
+   + 语法：@for 变量 from 开始数字 to 结束数字 { 内容 }
+   + 变量就表示 从 开始数字 到 结束数字 的每一个
+   + 注意： 包含开始数字，不包含结束时数字
+
+  2. for 循环
+   + 语法：@for 变量 from 开始数字 through 结束数字 { 内容 }
+   + 变量就表示 从 开始数字 到 结束数字 的每一个
+   + 注意： 包含开始数字，也包含结束时数字
+
+  3. each 循环
+   + 如何定义一个数组
+    => 语法：$arr: 值1,值2,值3,..... 
+    */
+
+// 1.for to 循环 
+// @for $n from 1 to 5 {
+//   // 在这个循环内，$n 就分别是 1 2 3 4
+//   li:nth-child(#{$n}) {
+//     font-size: 10px;
+//     left: $n * 100px;
+// }
+
+// .box#{$n} {
+//   width: 100px;
+// }
+// }
+
+// 2.for through 循环
+// @for $n from 1 through 5 {
+  // 在这个循环内，$n 就分别是 1 2 3 4 5
+//   li:nth-child(#{$n}) {
+//     font-size: 10px;
+//     left: $n * 100px;
+// }
+
+// .box#{$n} {
+//   width: 100px;
+// }
+// }
+
+// 3. each 循环
+// 3-1.定义一个数组
+$colorArr: red, skyblue, orange, green, yellow;
+
+// 3-2.循环遍历 $colorArr 这个数组
+@each $item in $colorArr {
+  // 配置语法：
+  // index（数组，项）
+  // 返回值：项在给数组中的索引位置
+  $index: index($colorArr,$item);
+  // $index 拿到的值分别是 1 2 3 4 5
+
+  li:nth-child(#{$index}) {
+    background-color: $item;
+  }
+}

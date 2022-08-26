@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+       div {
+        width: 100px;
+        height: 100px;
+       }
+    </style>
+</head>
+<body>
+    <button>开灯</button>
+    <div></div>
+    <script>
+        /*
+            需求：
+            + 通过点击按钮，来决定 div 元素的 背景颜色到底是 pink 还是 #ccc
+
+            实现：
+                1.获取元素
+                    => button 按钮
+                    => div 元素
+                2.绑定点击事件
+                3.如何操作开关灯
+                    => 拿到本身的样式值
+                    => 根据样式值去判断
+        */
+       //1.获取元素
+       var btn = document.querySelector('button')
+       var box = document.querySelector('div')
+
+       //提前准备一个开关变量
+       var flag = false
+
+       //2.绑定点击事件
+       btn.onclick = function(){
+            flag = !flag
+
+            //通过判断开关来 决定添加哪一个背景颜色
+            flag?box.style.backgroundColor = 'pink' : box.style.backgroundColor = '#ccc'
+       }
+    </script>
+    
+</body>
+</html>

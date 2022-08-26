@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+            npm 的基本使用
+
+            场景模拟：
+                + 一个完整的项目，你用了多少个第三方，分别是什么
+                + 每一个第三方的版本号是多少
+                + 方案1：逐个翻 html 文件，记录一下一共引入了多少的第三方
+                + 方案2：在项目开始的时候，准备一个 文档
+                    => 每下载一个第三方，就在文档内记录一些信息
+                    => jquery：3.3.6
+                    => swiper：5.24.1
+                    => pullpage：1.1.0
+
+            1. npm 初始化
+             + 打开命令行，切换目录到你的项目根目录
+             + 输入指令： npm init
+              => 会进入询问界面
+              => package name：你的项目名称，不要用中文
+              => version：版本号
+              => description：描述说明
+              => git repository：关联的git仓库地址
+              => keywords：项目关键字
+              => author：项目的作者
+             + 填写完毕以后，会在当前目录下等得到一个叫做 package.json 的文件
+              => 该文件就是你的项目描述文件
+              => 将来你在这个目录下下载第三方的时候
+              => 会自动被记录到这个 packsge.json 文件内
+             + 简写指令
+              => npm init -y 
+              => npm init -yes
+              => 所有的内容都按照默认值填写，生成一个 package.json 文件
+              => 注意：package name 会按照你的文件夹名称生成，所以你的文件夹名称不能使用中文或空格
+
+            2.使用 npm 下载第三方
+             + 打开命令行，切换到 项目根目录
+             + 输入指令： npm install 包名
+              => 简写指令：npm i 包名
+             + 等待结果 
+             + 下载完毕以后，会在当前目录下生成一个叫做 node_modules 的文件夹
+              => 该文件夹就有你刚才下载的内容
+             + 注意：
+              => 以前版本的 npm，如果你没有初始化，是没有关系的，一样会下载在当前目录下
+              => 最新版本的 npm，如果没有初始化，那么默认下载在你电脑的 系统 目录下，不会下载到当前目录下
+                -> 只有 npm 初始化以后，才能下载在当前目录下
+
+            3. 使用 npm 下载指定版本的第三方包
+             + 打开命令行，切换到 项目根目录
+             + 输入指令： npm install 包名@版本号
+              => 简写指令： npm i 包名@版本号
+             + 等待结果
+             + 注意：
+              => 一个项目内，一个同名包只能留存一个版本
+              => 当你下载一个其他版本的时候，会自动帮你把之前的版本消除掉
+
+            4.查看 npm 上可以下载的某一个包的所有版本
+             + 打开命令行，目录无所谓
+             + 输入指令：npm view 包名 versions
+             + 给你看到该包所有的发布的可下载的版本
+
+            5.卸载 npm 安装的第三方包
+             + 打开命令行，切换到 项目根目录
+             + 输入指令：npm uninstall 包名
+                => 简写指令：npm un 包名
+             + 会把你下载的包相关文件删除，并自动删除 package.json 文件内的记录
+
+            6.一次性下载所有项目相关第三方
+             + 打开命令行，切换到 项目根目录
+             + 要保证你的项目目录内有 package.json 文件
+             + 输入指令： npm install
+              => 简写指令： npm i
+             + 会把 package.json 文件内记录的所有第三方包一次性下载完毕
+
+            7. npm 清除缓存
+             + 打开命令行，目录无所谓
+             + 输入指令：npm cache clear -f
+             + 清除下载的路径记录
+             + 强力清除本地下载缓存
+              => 手动删除
+              => 我的电脑 -> 系统盘符 -> users -> 你自己的名字 -> AppData(有可能是个隐藏文件)
+              => 删除 npm-cache 文件夹就行
+        */
+    </script>
+</body>
+</html>

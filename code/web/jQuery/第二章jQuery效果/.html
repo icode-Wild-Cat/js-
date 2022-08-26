@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript" src="http://ajax.microsoft.com/ajax/jquery/jquery-1.4.min.js"></script>
+    <script>
+        /*
+            jQuery效果参考手册：https://www.w3school.com.cn/jquery/jquery_ref_effects.asp
+
+            jQuery效果-隐藏和显示
+            $(selector).hide(speed,callback)
+            $(selector).show(speed,callback)
+
+            可选的 speed 参数规定隐藏/显示的速度，可以取以下值："slow"、"fast" 或毫秒。
+            可选的 callback 参数是隐藏或显示完成后所执行的函数名称。
+
+            jQuery toggle()来切换 hide 和 show
+            显示被隐藏的元素，并隐藏已显示的元素  
+
+
+            淡入淡出：
+            fadeIn(speed,callback)
+            fadeOut(speed,callback)
+            fadeToggle(speed,callback)
+            fadeTo(speed,opacity(不透明度),callback)
+
+
+            滑动：
+            sildeDown(speed,callback)
+            sildeUp(speed,callback)
+            sildeToggle(speed,callback)
+
+
+            动画：
+            animate()方法用于创建自定义动画
+            语法：
+            $(selector).animate({params},speed,callback);
+            必需的 params 参数定义形成动画的 CSS 属性。
+            可选的 speed 参数规定效果的时长。它可以取以下值："slow"、"fast" 或毫秒。
+            可选的 callback 参数是动画完成后所执行的函数名称。
+            提示：默认地，所有 HTML 元素都有一个静态位置，且无法移动。
+            如需对位置进行操作，要记得首先把元素的 CSS position 属性设置为 relative、fixed 或 absolute！
+            提示：可以用 animate() 方法来操作所有 CSS 属性吗？
+            是的，几乎可以！不过，需要记住一件重要的事情：当使用 animate() 时，必须使用 Camel 标记法书写所有的属性名，比如，必须使用 paddingLeft 而不是 padding-left，使用 marginRight 而不是 margin-right，等等。
+            同时，色彩动画并不包含在核心 jQuery 库中。
+            如果需要生成颜色动画，您需要从 jQuery.com 下载 Color Animations 插件。
+
+            jQuery animate() - 使用相对
+            也可以定义相对值（该值相对于元素的当前值）。需要在值的前面加上 += 或 -=：
+            实例：
+            $("button").click(function(){
+            $("div").animate({
+                left:'250px',
+                height:'+=150px',
+                width:'+=150px'
+            });
+            });
+
+
+
+            */
+    //    $(document).ready(function(){
+    //     //    $('button:eq(0)').click(function(){
+    //     //        $('p').hide()
+    //     //    })
+    //     //    $('button:eq(1)').click(function(){
+    //     //        $('p').show()
+    //     //    })
+    //         $('button').click(function(){
+    //             $('p').toggle()
+    //         })
+    //    })
+        //   $(document).ready(function(){
+        //       $('p.sildeToggle').click(function(){
+        //           $('div.panel').slideToggle()
+        //       })
+        //   })
+
+        // 动画 
+        // $(document).ready(function(){
+        //     $('button.animate').click(function(){
+        //         $('div.animater').animate({left: '200px'},1000)
+        //     })
+        // })
+
+        // animate() 操作多个属性
+
+    </script>
+    <style>
+         * {
+            margin: 0;
+            padding: 0;
+        }
+        /*
+        div.panel,p.sildeToggle {
+            background-color: pink;
+            border: 1px solid skyblue;
+            text-align: center;
+            padding: auto;
+        }
+        div.panel {
+            height: 200px;
+            display: none;
+
+        } */
+    </style>
+</head>
+<body>
+    <!-- <p>点击btn隐藏和显示</p> -->
+    <!-- <button>隐藏</button>
+    <button>显示</button> -->
+    <!-- <button>显示/隐藏</button> -->
+
+    <!-- <div class="panel"></div>
+    <p class="sildeToggle">滑动</p> -->
+
+    <!-- <div class="animater" style="width: 100px;height: 100px;background-color: pink;position: absolute;"></div>
+
+    <button class="animate" style="position: absolute;top: 100px;">动画</button> -->
+
+    
+</body>
+</html>

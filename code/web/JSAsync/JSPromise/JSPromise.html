@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p></p>
+    <script>
+        /*
+            "Producing code（生产代码）" 是需要一些时间的代码
+            "Consuming code（消费代码）" 是必须等待结果的代码
+            Promise 是一个 JavaScript 对象，它链接生成代码和消费代码
+
+            JS Promise对象包含生产代码和消费代码的调用：
+
+            ***Promise语法：
+            let myPromise = new Promise(function(myResolve,reject){
+                // 'producing code'(可能需要一些时间)
+
+                myResolve() //成功时调用
+                myReject() //出错时
+            }) 
+            // "Consuming Code" （必须等待一个兑现的承诺）
+            myPromise.then(
+                function(value){//成功时的代码},
+                function(error){//出错时的代码}
+            )***
+
+
+
+        */
+
+        // function myDisplay(some){
+        //     document.querySelector('p').innerText = some
+        // }
+        // let myPromise = new Promise(function(myResolve,myReject){
+        //     let x = 0 
+        //     x===0?myResolve('OK'):myReject('Error')
+        // })
+        // myPromise.then(
+        //     function(value) {myDisplay(value)},
+        //     function(error) {myDisplay(error)}
+        // )
+        // console.log(myPromise)
+
+        // Promise实例：
+        // 1.等待超时
+        // let myPromise = new Promise(function(myResolve,myReject){
+        //     setTimeout(function(){myResolve('i love you')},300)
+        // })
+        // myPromise.then(function(value){
+        //     document.querySelector('p').innerText += value
+        // })
+        // 2.等待文件
+        let myPromise = new Promise(function(myResolve,myReject){
+            let req = new XMLHttpRequest()
+            req.open('GET',"../JS回调&异步/mycar.html")
+            req.onload=function(){
+                if(req.status == 200){
+                    myResolve(req.response)
+                }
+                else{
+                    myReject('File not Found')
+                }}
+
+                req.send();
+            })
+            
+
+            myPromise.then(function(value){document.querySelector('p').innerHTML = value},
+                function(error){document.querySelector('p').innerHTML = error}
+            )
+
+    
+    </script>
+</body>
+</html>
+
+
+//  JS Promise语法
+//     function callBack(){}
+// let myPromise = new Promise(function(myResolve,myReject){
+//     myResolve()
+//     myReject()
+// }) 
+// myPromise.then(
+//     function(value){callBack(value)}
+//     function(error){callBack(error)}
+// ) 

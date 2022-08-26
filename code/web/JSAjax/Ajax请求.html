@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>XMLHttpRequest 对象</h1>
+    <button type="button" onclick='loadDoc("./demo/demo.text",myFun)'>请求数据</button>
+    <p></p>
+    <script>
+        /*  
+            XMLHttpRequest 对象用于同服务器交换数据
+            向服务器发送请求：open() 和 send()
+            如：xhttp.open('GET',"mycar.html",true)
+                xhttp.send()
+            
+            GET 还是 POST？
+            GET 比 POST 更简单更快，可用于大多数情况下。
+            不过，请在以下情况始终使用 POST：
+                缓存文件不是选项（更新服务器上的文件或数据库）
+                向服务器发送大量数据（POST 无大小限制）
+                发送用户输入（可包含未知字符），POST 比 GET 更强大更安全
+
+
+
+        */
+
+         /* 
+         GET 请求
+         一条简单的 GET 请求：
+         实例：
+         xhttp.open('GET',"demo_get.asp",true)
+         xhttp.send()
+
+         POST 请求：
+         如需像 HTML 表单那样 POST 数据，请通过 setRequestHeader() 添加一个 HTTP 头部。请在 send() 方法中规定您需要发送的数据：
+        实例：
+        xhttp.open("POST", "ajax_test.asp", true);
+        xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        xhttp.send("fname=Bill&lname=Gates");
+
+        setRequestHeader(header,value) 向请求添加HTTP头部：
+                                            *header：规定头部名称
+                                            *value：规定头部值
+
+
+        使用回调函数：
+        如果您的网站中有多个 AJAX 任务，那么您应该创建一个执行 XMLHttpRequest 对象的函数，以及一个供每个 AJAX 任务的回调函数。
+        该函数应当包含 URL 以及当响应就绪时调用的函数。
+            实例：
+            loadDoc("url-1", myFunction1);
+            loadDoc("url-2", myFunction2);
+            function loadDoc(url, cFunction) {
+            var xhttp;
+            xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                cFunction(this);
+                }
+            };
+            xhttp.open("GET", url, true);
+            xhttp.send();
+            }
+            function myFunction1(xhttp) {
+            // 行动在这里
+            } 
+            function myFunction2(xhttp) {
+            // 行动在这里
+            } 
+
+        */
+        
+        // function loadDoc() {
+        //     let xhttp 
+        //     window.XMLHttpRequest?xhttp=new XMLHttpRequest():xhttp=new ActiveXObject('Microsoft.XMLHTTP')
+        //     xhttp.onreadystatechange = function(){
+        //         if(this.readyState==4&&this.status==200){
+        //             document.querySelector('p').innerHTML = this.responseText
+        //         }
+        //     }
+        //     xhttp.open("GET","./demo/demo.text",true)
+        //     xhttp.send()
+        // }
+
+        function loadDoc(url,cFunction){
+            var  xhttp 
+            window.XMLHttpRequest?xhttp=new XMLHttpRequest:xhttp=new ActiveXObject('Microsoft.XMLHTTP')
+            xhttp.onreadystatechange = function(){
+                if(this.readyState==4&&this.status==200){
+                    cFunction(this)
+                }
+            }
+                xhttp.open('GET',url,true)
+                xhttp.send()
+            }
+        function myFun(xhttp){
+            document.querySelector('p').innerHTML = xhttp.responseText
+        }
+
+        
+
+    </script>
+</body>
+</html>

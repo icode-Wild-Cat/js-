@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        div {
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+        p {
+            width: 100px;
+            height: 100px;
+            display: block;
+            background-color: skyblue;
+            position: absolute;
+            left: 0;
+            top: 100px;
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+    <p></p>
+    <script>
+        /*
+            运动函数第一版
+
+            需求：页面上有一个 div
+             => 当你触发事件（可以是任意事件）的时候
+             => 可以改变 div 的位置
+             => 需要运动的改变
+             => 如果还有一个 p 标签，需要一样的操作
+
+            封装运动函数
+             => 准备一个函数
+             => 问题1：这个运动函数需要多少个参数？
+              -> 要运动的元素   ele
+              -> 要运动的样式名  type
+              -> 要运动的目标位置  target
+        */
+
+        // 1.准备一个函数
+        function move(ele,type,target) {
+            //书写的就是能让一个元素运动到目标位置
+            
+            let distance = 0
+            const timer = setInterval(()=>{
+                distance += 5
+                ele.style[type] = distance + 'px'
+                if(distance>=target)clearInterval(timer)
+            },20)
+
+        }
+
+        //将来我们需要使用的时候
+        const box = document.querySelector('div')
+        const p = document.querySelector('p')
+
+        box.onclick = function () {
+            // 一旦调用 move 函数，就可以让 box 运动到指定的位置
+            move(box,'left',400)
+        }
+        p.onclick = function () {
+            move(p,'top',400)
+        }
+
+        // //1.获取元素
+        // const box = document.querySelector('div')
+
+        // //2.绑定事件
+        // box.onclick = function () {
+           
+        //     // 3.开始运动
+        //     // 3-1. 准备一个初始变量
+        //     let distance = 0
+
+        //     // 3-2.准备一个定时器
+        //     const timer = setInterval(()=>{
+        //         distance += 5
+               
+        //         box.style.left = distance + 'px'
+
+        //         if(distance>=400){
+        //             clearInterval(timer)
+        //         }
+        //     },20) 
+        // }
+    </script>
+</body>
+</html>

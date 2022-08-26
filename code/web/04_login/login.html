@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input class="username" type="text">
+    <input class="password" type="text">
+    <button>登录</button>
+
+    <script>
+        /*
+            登录
+        */
+
+        const nameInp = document.querySelector('.username')
+        const pwdInp = document.querySelector('.password')
+        const btn = document.querySelector('button')
+
+        btn.onclick = function(){
+            const name = nameInp.value
+            const pwd = pwdInp.value
+            
+            if(!name||!pwd) return
+
+            const data = `username=${name}&password=${pwd}`
+
+            // GET
+            // 发送请求
+            // const xhr = new XMLHttpRequest()
+            // xhr.open('GET',"./login.php?"+data)
+            // xhr.onload = function(){
+            //     // js 的JSON操作 JSON.stringify()('编码') 和 JSON.parse()('解码')
+            //     const res = JSON.parse(xhr.responseText)
+            //     console.log(res)
+            // }
+            // xhr.send()
+
+            // POST
+            // 发送请求
+        const xhr = new XMLHttpRequest()
+            xhr.open('POST',"./login.php")
+            xhr.onload = function(){
+                // js 的JSON操作 JSON.stringify()('编码') 和 JSON.parse()('解码')
+                const res = xhr.responseText
+                console.log(res)
+                // console.log(JSON.parse(res))
+            }
+            // 请求头
+            xhr.setRequestHeader('content-type','application/x-www-form-urlencoded')
+            xhr.send(data)
+        }
+
+        
+        
+    </script>
+
+</body>
+</html>

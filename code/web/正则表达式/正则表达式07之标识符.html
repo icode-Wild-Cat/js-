@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+            标识符
+             + 书写在正则表达式的外面，专门用来修饰整个正则表达式的符号
+
+            1. i(ignore)
+             => 表示忽略大小写不计
+
+            2. g(global)
+             => 全局：欠着
+        */
+
+        // 标识符 i 修饰正则表达式，表示该正则在验证字符串的时候忽略大小写不计
+        var reg = /abcd/i
+        console.log(reg.test('abcd'))
+        console.log(reg.test('ABCD'))
+    </script>
+</body>
+</html>
+
+    

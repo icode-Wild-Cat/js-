@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+            元字符 - 特殊字符
+
+            1. ()
+             => 意义1：一个整体
+             => 意义2：单独捕获（欠着）
+
+            2.|
+             => 意义：或者的意思
+             => 注意：或的边界，要么是 (),要么就到正则的边界(正则边界：//)
+
+            3.[]
+             => 意义：包含
+             => 注意：一个[]内可以写多个内容，但是一个[]只一个字符位置，表示[]内的任意一个都行
+             => [0-9] 等价于 \d
+             => [0-9a-zA-Z_] 等价于 \w
+
+            4.[^]
+             => 意义：非
+             => 注意：一个 [^] 内可以写多个内容，但是一个 [^] 只占一个字符位置，表示 [^] 内任意一个都不行
+             => [^0-9] 等价于 \D
+             => [^0-9a-zA-Z_] 等价于 \W
+
+             5. - 中划线
+              => 意义：到 至
+              => 注意：需要和 [] 或者 [^] 连用
+              => 注意：需要 ASCII 编码连着的才可以使用
+            
+        */
+
+        //1. () 一个整体
+        // {2} 修饰的是前面 () 内的全部内容
+        // var reg = /^(abc){2}$/
+        // console.log(reg.test('abcabc'))
+
+        //问题：
+        //正则：汽车{2}
+        //汽车：可以是 奥迪 亦可以是 宝马
+        //{2} 修饰的是一个()，需要 **一个整体内容** 出现两次
+        // **一个整体内容**：可以是 'abc' 也可以是 'def'
+        var reg = /^(abc|def){2}$/
+        console.log(reg.test('abcabc'))
+        console.log(reg.test('abcdef'))
+        console.log(reg.test('defabc'))
+        console.log(reg.test('defdef'))
+        //全部都是输出 true
+    </script>
+</body>
+</html>

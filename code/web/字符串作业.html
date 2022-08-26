@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            width: 3000px;
+            height: 33px;
+        }
+    </style>
+
+</head>
+<body>
+    <script>
+        
+        // "use strict"//严格模式，代码书写要严格
+        
+
+        // var str = "你好"
+        // console.log(str.length)     
+        
+        /**
+         * 作业一：替换敏感词
+         * 分析：
+         * => 需要使用的方法是replace()
+         * 因为这个方法一次只能替换一个
+         * 需要多次调用
+         * -> 判断，只要字符串内部还有敏感词，那么就要执行一遍替换
+         * -> 替换一次以后，原始字符串中会少一个敏感词
+         * -> 判断，如果还有，再次进行替换
+         */
+
+        /**
+         * 方案一：
+         * replace()
+         */
+        //原始字符串
+        // var str = 'qwerHHHtyuHHHiopHHHH'
+        
+        // console.log(str)
+        
+        // //进行替换
+        // while(str.indexOf('H') != -1){
+        //     str = str.replace('H','*')
+        // }
+ 
+        // console.log('方案1',str)
+
+        /**
+         * 方案二：
+         * 1.split()
+         * => 使用split 按照 敏感词 分割 成数组
+         * 2.join()
+         * => 使用 join 按照一个连接词，把分割后的数组连接起
+         */
+        //  var str = 'qwerHHHtyuHHHiopHHHH'
+        //  console.log(str)
+        // //1.分割字符串
+        // var strArr = str.split('H')
+        // //2.连接数组
+        // var str2 = strArr.join('*')
+        // console.log('方案2',str2)
+        
+    /*作业2：反转字符串
+    */
+
+    /**
+     * 方案1：循环遍历字符串
+     * 1. 正着遍历字符串，倒着拼接
+     * 2. 倒着遍历字符串，正着拼接
+     */ 
+
+     //原始字符串
+    //  var str = 'abcd'
+    //  console.log(str)
+
+     //1.准备一个变量接收结果
+    //  var res = ''
+
+    //  //2.循环遍历原始字符串
+    //  for(var i=0;i<str.length;i++){
+    //     res = str[i] + res
+    //  }
+    //  console.log(res)
+    
+    //2.倒着循环遍历字符串
+    // for(var i=str.length-1;i>=0;i--){
+    //     res = res + str[i]
+    // }
+    // console.log('方案1',res)
+
+    /**
+     * 方案2：
+     * 1.split()
+     * => 按照 空字符串 进行切割，转换成数组
+     * 2.reverse()
+     * => 把数组反转
+     */ 
+    
+     //1.切割字符串
+    //  var arr = str.split('')
+     //2.反转数组
+    //  arr.reverse()
+     //连接数组
+    //  str = arr.join('')
+    // console.log('方案2',str)
+
+    /**
+     * 查询字符串 - queryString
+     * + 我们把所有被引号包裹的内容都叫做字符串
+     * + 因为字符串填充的内容不一样，我们做了一些细致分类
+     * => 全部由数组字符串：数字字符串
+     *  -> '123456789'
+     * => 带有 html 格式的字符串：html 格式字符串
+     *  -> '<p>abcd</p>'
+     * => 查询字符串格式
+     *  -> key=value&key=value
+     *  -> 'name=zhangsan&password=123456789&gender=男'
+     * 
+     * 把一个信息变成 查询字符串 格式
+     * 把 查询字符串 格式变成有一个信息
+     */ 
+
+    /**
+     * 1.封装一个方法
+     * + 把 对象数据类型 转换成 查询字符串格式
+     * + 需要准备一个函数，需要接受几个参数 ？
+     *  => 需要转换成查询字符串格式的 对象
+     */ 
+    /**
+     * JSON字符串
+     */ 
+    //  var str = {name:"zhansan"}
+    //  console.log(str)
+    //  var json = JSON.stringify(str)
+    //  console.log(json)
+    //  var str1 = JSON.parse(json)
+    //  console.log(str1)
+    //  var j1 = JSON.stringify(json)
+    //  console.log(j1)
+
+    console.log(window.innerWidth)
+    console.log(window.innerHeight)
+    //提示框
+    console.log(window.alert('hello world'))
+    //选择框
+    console.log(window.confirm('确定删除吗？'))
+    //输入框
+    console.log(window.prompt())
+    </script>
+    
+</body>
+</html>

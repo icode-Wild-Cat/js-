@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!--***案例：全选***-->
+    <!--需求在心中-->
+    <div class="box" style="border: 1px solid;width: 100px;border-radius: 10px;">
+        <input type="checkbox">全选<br/>
+        <hr/>
+        <input type="checkbox">选项一<br/>
+        <input type="checkbox">选项二<br/>
+        <input type="checkbox">选项三<br/>
+        <input type="checkbox">选项四<br/>
+    </div>
+    <script>
+        var allBtn = document.querySelector('input')
+        var btns = document.querySelectorAll('input:nth-child(n+2)')
+
+        allBtn.onclick = function(){
+            btns.forEach(function(item){
+                item.checked = allBtn.checked
+                item.onclick = function(){
+                    var count = 0
+                    btns.forEach(function(t){
+                        if(t.checked) count++
+                        allBtn.checked = count==4
+                    })
+                    console.log(count)
+                    
+
+                }
+                
+            })
+        }
+    </script>
+</body>
+</html>

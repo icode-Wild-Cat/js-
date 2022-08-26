@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!--
+        JS代码的书写
+
+        1.行内式
+        +a 标签
+            => 在 href 属性的位置书写你要执行的JS代码
+            => 为了和跳转连接的行为做一个区分
+            => 会在 href 的值的位置书写一个JS:代码;
+            => <a href="JS:代码;"></a>
+        +非a标签
+            =>当非a标签需要执行js代码的时候 
+            =>例如:添加一个onclick属性
+            =>在属性值的位置，直接书写js代码即可
+
+        2.内嵌式
+        +在页面内书写script标签
+        +把你需要执行的js代码书写在这个script标签对内
+        +注意：
+            1.script标签对内的代码不需要任何行为，打开页面就会执行
+            2.script标签对原则上可以书写在页面的任意的位置
+                =>推荐放在head标签的末尾或者body标签的末尾
+                =>目前我们推荐放在body的末尾
+            3.一个页面原则上可以书写任意多个script标签
+                =>会按照从上到下的顺序依次执行每一个script标签的代码
+
+        3.外链式
+         +把js代码书写在一个.js后缀的文件内
+          =>在文件内不需要书写script标签对，直接书写js代码即可
+          =>在html文件内，以script标签的src属性引入页面
+         +注意：
+          1.外链式js代码不需要任何行为，打开页面就是执行
+    -->
+   <!--1.行内式 js 代码 -a标签 -->
+   <!--
+       此时，这个a标签在你点击的时候，就不会进行跳转连接了
+       而是执行一个JS代码
+
+       第一段 js 代码:
+        +alert('文本内容')
+        注意:
+        => alert()内的内容需要用引号包裹，单引号双引号无所谓
+        +意义：
+        => 在浏览器弹出一个提示框，提示框里面的内容就是你书写在小括号内部的文本内容
+
+        当你点击这个a标签的时候，会执行一段js代码
+         =>执行alert('hello,world')这一段代码
+         =>因为这一段代码会在浏览器弹出一个提示框
+         =>当你点击a标签的时候，会在浏览器弹出提示框显示hello，world 文本
+   -->
+   <!-- <a href="javascript: slert('hello,world');">点击这里</a> -->
+   <!--
+       因为a标签是不认识js代码的
+       +你又没有书写javascript:;
+       +就导致a标签会认为你写的就是一个连接地址
+   -->
+   <a href="slert('hello,world');">点击这里</a>
+
+</body>
+</html>

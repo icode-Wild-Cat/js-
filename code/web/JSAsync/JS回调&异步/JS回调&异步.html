@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div style="width: 100px;height:100px;background-color:pink;"></div>
+    <script>
+        /*  
+            JS 回调：
+            回调 (callback) 是作为参数传递给另一个函数的函数
+            这种技术允许函数调用另一个函数
+            回调函数可以在另一个函数完成后运行
+
+            回调真正闪光之处是异步函数，其中一个函数必须等待另一个函数（例如等待文件加载）
+
+            JS 异步：
+            与其他函数并行运行的函数称为异步（asynchronous）
+            一个很好的例子是 JavaScript setTimeout()
+        */
+        // 使用回调，您可以通过回调调用计算器函数（myCalculator），并在计算完成后让计算器函数运行回调：
+        function myDisplay(some) {
+            document.querySelector('div').innerText += some
+        }
+        
+        function myCalculator(num1,num2,myCallback){
+            let sum = num1 + num2
+            myCallback(sum)
+        }
+        myCalculator(1,2,myDisplay)
+        // 在上面的例子中， myDisplayer 是函数的名称
+        // 它作为参数传递给 myCalculator
+        // 在现实世界中，回调最常与异步函数一起使用。
+        // 一个典型的例子是 JavaScript setTimeout()。
+
+        // 等待超时
+        // 在使用 JS函数 setTimeout()时，可以指定超时时执行的回调函数：
+        // 实例：
+        set
+    </script>
+</body>
+</html>

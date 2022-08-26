@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*  
+            原型
+
+            构造函数概念:
+             + **每一个函数天生自带一个属性，叫做 prototype，是一个对象数据类型**
+             + 构造函数也是一个函数，也带有 portotype
+             + 这个天生自带的 prototype 内有一个叫做 constructor 的属性
+              => 表明我是谁自带的 prototype
+              => 指向自己的构造函数
+             + 是一个对象，我就可以向里面添加一些成员
+
+            实例对象概念：
+             + **每一个对象天生自带一个属性，叫做 __proto__,指向所属构造函数的 prototype**
+             + 实例对象也是对象。所以实例对象也有 __proto__
+        */
+
+        function Person() {
+            this.name = 'Jack'
+        }
+
+        // 当 Person 这个函数定义完毕以后
+        // 就可以直接使用 Person.prototype 了
+        // prototype 是一个对象数据类型
+        console.log(Person.prototype)
+
+        const p1 = new Person()
+        console.log(p1.__proto__)
+    </script>
+</body>
+</html>

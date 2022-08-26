@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+            字符串方法
+             + 正则常用方法：正则.xxx()
+             + 字符串常用方法：字符串.xxx()
+
+            1.replace()
+             => 语法：
+              -> 字符串.replace('换下字符','换上字符')
+              -> 字符串.replace(正则表达式,'换上字符')
+             => 返回值：替换好的字符串
+              -> 当你的第一个参数传递字符串的时候，只能替换一个
+              -> 当你的第一个参数传递正则表达式的时候，只能替换一个
+              -> 但是如果你的正则表达式有全局标识符 g ，那么有多少替换多少
+
+            2.search()
+             => 语法：
+              -> 字符串.search(字符串片段)
+              -> 字符串.search(正则表达式)
+             => 作用：在原始字符串内查找指定内容
+             => 返回值：
+              -> 原始字符串有指定内容，就是这个内容的索引
+              -> 原始字符串内没有指定内容，那么就是 -1
+
+            3.match()
+             => 语法：
+              -> 字符串.match(字符串片段)
+              -> 字符串.match(正则表达式)
+             => 返回值：从原始字符串中捕获满足条件的片段
+             => 注意：如果你的参数传递的是字符串或者没有全局标识符g 的正则表达式，那么和 exec 返回值一模一样
+              -> 当你的正则有全局标识符时，那么返回值是一个数组
+              -> 能从字符串中捕获多少，数组里就有多少内容
+        */
+
+        //1.replace()
+        // var str = 'safHHwMMefsHHafNNewaHHfaf'
+        // console.log(str)
+        // var r1 = str.replace('HH','**')
+        // console.log(r1)
+        // var r2 = str.replace(/HH/,'**')
+        // console.log(r2)
+        // var r3 = str.replace(/HH/g,'**')
+        // console.log(r3)
+
+        //把HH、MM、NN都替换掉
+        //准备一个敏感词数组
+        // var arr = ['HH','MM','NN']
+        //只要有一个正则 /(HH|MM|NN)/g
+        //1.把数组拼接成字符串
+        // var a = arr.join('|')  //=>HH|MM|NN
+        // var reg = new RegExp('('+a+')','g')
+        // var r4 = str.replace(reg,'**')
+        // console.log(r4)
+
+        //2.search()
+        // var str = 'asdwf123xceawf'
+        // console.log(str.search('123'))
+        // console.log(str.search('1234'))
+        // console.log(str.search(/\d{3}/))
+
+        //3.match()
+        var str = 'adweda123ce456fcd789s'
+        console.log(str.match('123'))
+        console.log(str.match(/\d{3}/g))
+        
+    </script>
+</body>
+</html>

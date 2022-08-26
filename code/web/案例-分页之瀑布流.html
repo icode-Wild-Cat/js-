@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+    <script>
+        var div = document.querySelector('div')
+        
+        // div.onmousedown = function(){
+        //     console.log('鼠标按下')
+            
+        // }
+        // div.onmouseup = function(){
+        //     console.log('鼠标松开')
+        // }
+        // div.oncontextmenu = function(){
+        //     console.log('我被右键单击了')
+        // }
+        div.onclick = function(){
+            console.log('我被双击了')
+        }
+
+    </script>
+    
+</body>
+</html>

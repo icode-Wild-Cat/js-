@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* input {
+            border: 0;  // 0 表示没有边框
+        } */
+        input {
+            border-width: 1px; 
+            /* 0 表示没有边框 */
+            border-color: #000;
+            border-style: dotted;
+        }
+        .user {
+            border-width: 1px;
+            border-color: red;
+            border-style: solid;
+        }
+        .name {
+            /* 可以单独设置边框 上下左右 */
+            border-top-width: 1px;
+            border-top-color: pink;
+            border-top-style: dashed;
+        }
+        .email {
+            /* 边框可以综合简写 */
+            /* border: width color style color; */
+            border-top: 2px solid red;
+        }
+    </style>
+</head>
+<body>
+    用户名：<input type="text" class="user"><br /><br />
+	昵&nbsp;&nbsp;&nbsp;称：<input type="text" class="name"><br /><br />
+	邮&nbsp;&nbsp;&nbsp;箱：<input type="email" class="email"><br /><br />
+</body>
+</html>

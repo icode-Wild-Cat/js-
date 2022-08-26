@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>列表过滤</title>
+    <!-- 引入Vue -->
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+    <!-- 
+        
+     -->
+    <!-- 准备一个容器 -->
+    <div class="root">
+        <h2>人员列表</h2>
+        <input type="text" v-model="keyWord" placeholder="请输入名字">
+        <ul>
+            <li v-for="(p,index) in filpersons" :key="p.id">
+           ;     {{p.name}}-{{p.age}}
+            </li>
+        </ul>
+
+        
+    </div>
+    <script>
+        Vue.config.productionTip = false //阻止 Vue 在启动时生成生产提示
+        //#region 
+        /*用watch实现
+        const vm = new Vue({
+            el:'.root',
+        data:{
+            keyWord:'',
+            persons:[
+                {id:'001',name:'马冬梅',age:10},
+                {id:'002',name:'周冬雨',age:20},
+                {id:'003',name:'周杰伦',age:30},
+                {id:'004',name:'温兆伦',age:40}
+            ], 
+            filpersons:[]         
+        },
+        watch:{
+            keyWord(val){
+                this.filpersons = this.persons.filter((item)=>{
+                    return item.name.indexOf(val) != -1
+                })
+            }
+        }
+        }
+        )*/
+        //#endregion 
+        
+    </script>
+</body>
+</html>

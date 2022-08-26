@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+            AJAX的核心是 XMLHtttpRequest
+
+            创建XMLHttpRequest对象(兼容IE低版本):
+            var xhttp
+            if(window.XMLHttpRequest){
+                xhttp = new XMLHttpRequest()
+            } else{
+                xhhtp = new ActiveXObject('Microsoft.XMLHTTP')
+            }
+
+            跨域访问：
+            出于安全原因，现代浏览器不允许跨域访问。
+            这意味着尝试加载的网页和 XML 文件都必须位于相同服务器上。
+            W3School 上的实例都会打开位于 W3School 域上的 XML 文件。
+            如果您希望在自己的页面上使用以上实例，那么您所加载的 XML 文件必须位于您自己的服务器上。
+
+            XMLHttpRequest 对象方法：
+            new XMLHttpRequest()                创建新的 XMLHttpRequest 对象
+            abort()                             取消当前请求
+            getAllResponseHeaders()             返回头部信息
+            getResponseHeader()                 返回特定的头部信息
+            open(method,url,async,user,psw)     规定请求 
+                                                    *method：请求类型GET或POST
+                                                    *url：文件位置
+                                                    *async：true(异步)或false(同步)
+                                                    *user：可选的用户名
+                                                    *psw：可选的密码
+            send()                              将请求发送到服务器，用于 GET 请求
+            send(string)                        将请求发送到服务器，用于 POST 请求
+            setRequestHeader()                  向要发送的报头添加标签/值对
+
+            XMLHttpRequest 对象属性：
+            onreadystatechange                  定义当 readyState 属性发生改变时被调用的函数
+            readyState                          保存 XMLHttpRequest 的状态
+                                                    *0：请求未初始化
+                                                    *1：服务器链接已建立
+                                                    *2：请求已收到
+                                                    *3: 正在处理请求
+                                                    *4：请求已完成且响应已就绪
+            responseText                        以字符串返回响应数据
+            responseXML                         以XML数据返回响应数据
+            status                              返回请求的状态号
+                                                    *200："OK"
+                                                    *403: "Forbidden"
+                                                    *404: "Not Found"
+                                                    详情访问：https://www.w3school.com.cn/tags/html_ref_httpmessages.asp
+            statusText                          返回状态文本（比如："OK"或者"Not Found"）
+
+                                                    
+            */
+    </script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #container {
+            width: 600px;
+            height: 100px;
+        }
+        #animate {
+            width: 200px;
+            height: 100px;
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <div id="container"><div id="animate"><h1 id="h1" style="font-size: 30px;text-align: center;">鼠标移上来</h1></div></div>
+
+    <script>
+        var elem = document.querySelector('#animate')
+        elem.onmouseover = function(){
+            document.querySelector('#h1').innerHTML = "谢谢你!";
+        }
+        elem.onmouseout = function(){
+            document.querySelector("#h1").innerHTML = "鼠标移上来";
+        }
+    </script>
+
+</body>
+</html>

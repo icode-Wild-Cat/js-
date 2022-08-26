@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+            正则表达式的常用方法
+
+            1. test() 匹配
+                => 语法：正则表达式.test('要检测的字符串')
+                => 返回值：一个布尔值
+                    -> 如果该字符串符合正则的规则，那么就是 true，否则就是 false
+
+            2. exec()捕获
+                => 欠着
+        */
+       
+        //1. test()匹配
+        //意义：字符串中必须含有 abcd 字符串片段
+        var reg = /abcd/
+        var str = 'bcdkjhax'
+        console.log(reg.test(str))
+    </script>
+</body>
+</html>

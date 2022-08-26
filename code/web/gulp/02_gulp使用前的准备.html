@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    /*
+      gulp 使用前的准备工作
+
+      1.建立你的项目文件夹
+       => 需要有一个根目录
+       => 根目录下需要那些内容
+        -> src 源文件
+        -> package.json 文件（通过 npm 初始化得到）
+        -> gulpfile.js 文件
+         + 对本项目打包的配置和工作过程文件
+         + 将来你使用工具进行打包的时候，gulp 工具会自动读取项目根目录中的 gulpfile.js 文件
+         + 按照 gulpfile.js 文件中的配置进行打包工作
+      2.在项目内下载一个 gulp 第三方包
+       => gulp 第三方包是第三方模块
+       => 用来在代码内导入以后得到一些 API 来帮助完成工作的
+       => 下载：
+        -> 如果你下载的第三方依赖是一个 开发依赖
+        -> 最好使用指令的时候加上一个 --save-dev，简写 -D
+        -> 作用：只是在记录的时候，在 packsge.json 内，不会记载下 dependencies 这里
+         + 而是记载在一个 devDependencies 里面
+        -> 打开命令行，切换目录到你的项目根目录
+        -> 输入指令：npm i -D gulp
+      3.在 gulpfile.js 文件内导入你下载的 第三方 gulp
+      4.开始书写对于该项目的打包配置内容
+
+      gulp 第三方包提供的一些常用方法
+       1.gulp.task()
+        => 语法：gulp.task('任务名称',函数)
+        => 作用：创建一个任务
+        => 例子：gulp.task( cssHandler, ()=>{ 根据 gulp 的语法对 css 文件进行打包 } )
+       2.gulp.src()
+        => 语法： gulp.src('路径地址')
+        => 作用：标注源文件所在位置
+        => 路径地址：
+         -> ./src/css/a.css                     指定找到某一个 css 文件
+         -> ./src/css/*.css                     指定找到 css 目录下所有 .css 文件
+         -> ./src/* / **（注意：实际是没有空格的）  指定找到 src 目录下所有文件
+         -> ./src/* / *.css                      指定找到 src 目录下的所有文件夹内的所有 .css 文件
+         -> ...
+        => 返回值：gulp任务流
+       3.pipe()
+        => 语法：需要 gulp流.pipe(下一个工作)
+        => 作用：管道函数
+       4.gulp.dest()
+        => 语法：gulp.dest(路径)
+        => 作用：把前面一个流传递来的内容放在指定目录下
+       5.gulp.watch()
+        => 语法：gulp.watch(源文件路径，任务名称)
+        => 作用：监控源文件，只要发生改变，就执行一遍 指定任务
+       6.gulp.parallel()
+        => 语法：gulp.parallel(任务1,任务2...)
+        => 作用：并行开始所有的任务
+       7.gulp.series()
+        => 语法：gulp.series(任务1,任务2...)
+        => 作用：逐个执行任务
+
+      解释一下 gulp
+       + 全局安装的 gulp 
+        => 作用：是给你的电脑提供一个可以打包文件的能力
+        => 你的电脑可以使用 gulp 这个工具来对你的项目进行打包了
+        => 你可以在 命令行 执行 gulp xxxx 的指令
+       + 项目依赖的 gulp 
+        => 作用：让你在 gulpfile.js 文件内导入以后
+        => 可以得到一些方法，来决定某些打包规则
+
+      依赖分类
+       + 开发依赖
+        => 在开发环境中使用的依赖第三方
+        => 没有这个依赖，项目可以正常运行
+        => gulp
+       + 生产依赖
+        => 在生产环境中使用的依赖第三方
+        => 没有这个依赖，项目没办法正常运行了
+        => jquery
+
+
+
+
+
+
+
+
+
+
+
+
+      gulp 第三方包提供的一些常用方法
+       1.gulp.task()
+        => 语法：dulp.task('任务名称',函数)
+        => 作用：创建一个任务
+        => 例子：gulp.task('cssHandler',()=>{ 根据 gulp 的语法对 css 文件进行打包 })
+       2.gulp.src()
+        => 
+    */
+  </script>
+</body>
+</html>

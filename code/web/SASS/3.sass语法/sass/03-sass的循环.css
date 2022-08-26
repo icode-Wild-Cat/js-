@@ -1,0 +1,37 @@
+@charset "UTF-8";
+/*
+  sass 的循环
+
+  1. for 循环
+   + 语法：@for 变量 from 开始数字 to 结束数字 { 内容 }
+   + 变量就表示 从 开始数字 到 结束数字 的每一个
+   + 注意： 包含开始数字，不包含结束时数字
+
+  2. for 循环
+   + 语法：@for 变量 from 开始数字 through 结束数字 { 内容 }
+   + 变量就表示 从 开始数字 到 结束数字 的每一个
+   + 注意： 包含开始数字，也包含结束时数字
+
+  3. each 循环
+   + 如何定义一个数组
+    => 语法：$arr: 值1,值2,值3,..... 
+    */
+li:nth-child(1) {
+  background-color: red;
+}
+
+li:nth-child(2) {
+  background-color: skyblue;
+}
+
+li:nth-child(3) {
+  background-color: orange;
+}
+
+li:nth-child(4) {
+  background-color: green;
+}
+
+li:nth-child(5) {
+  background-color: yellow;
+}

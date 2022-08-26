@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+     <!-- jQuery是轻量级js库，必须包含在 <head> 内-->
+     <script type="text/javascript" src="http://ajax.microsoft.com/ajax/jquery/jquery-1.4.min.js"></script>
+     <!-- 注：type="text/javascript" 可以不写，因为 H5 默认的脚本语言就是 javascript -->
+     <script type="text/javascript">
+        $(document).ready(function(){
+            $('p').click(function(){
+                $(this).hide()
+            })
+        })
+
+        /*
+        jQuery 语法是为 HTML 元素的选取编制的，可以对元素执行某些操作。
+
+        基础语法是：$(selector).action()
+
+        美元符号定义 jQuery
+        选择符（selector）“查询”和“查找” HTML 元素
+        jQuery 的 action() 执行对元素的操作
+
+        文档就绪函数
+        $(document).ready(function(){
+            // jQuery functions go here
+        })
+        防止文档在完全加载（就绪）之前运行jQuery代码
+
+
+
+        jQuery选择器:
+        参考手册：https://www.w3school.com.cn/jquery/jquery_ref_selectors.asp
+
+        jQuery 元素选择器
+        jQuery 使用 CSS 选择器来选取 HTML 元素。
+        $("p") 选取 <p> 元素。
+        $("p.intro") 选取所有 class="intro" 的 <p> 元素。      
+        $("p#demo") 选取所有 id="demo" 的 <p> 元素。
+
+        jQuery 属性选择器               
+        jQuery 使用 XPath 表达式来选择带有给定属性的元素。
+        $("[href]") 选取所有带有 href 属性的元素。
+        $("[href='#']") 选取所有带有 href 值等于 "#" 的元素。
+        $("[href!='#']") 选取所有带有 href 值不等于 "#" 的元素。
+        $("[href$='.jpg']") 选取所有 href 值以 ".jpg" 结尾的元素。
+
+        jQuery CSS选择器               
+        jQuery CSS选择器可用于改变 HTML 元素的 CSS 属性。
+        下面的例子把所有 p 元素的背景颜色更改为红色：
+        实例
+        $("p").css("background-color","red");
+
+    
+
+        jQuery 名称冲突
+        jQuery 使用 $ 符号作为 jQuery 的简介方式。
+        某些其他 JavaScript 库中的函数（比如 Prototype）同样使用 $ 符号。
+        jQuery 使用名为 noConflict() 的方法来解决该问题。
+        var jq=jQuery.noConflict()，帮助您使用自己的名称（比如 jq）来代替 $ 符号。
+
+
+        jQuery 事件
+        下面是 jQuery 中事件方法的一些例子：
+        Event函数 	                        绑定函数至
+        $(document).ready(function) 	    将函数绑定到文档的就绪事件（当文档完成加载时）
+        $(selector).click(function) 	    触发或将函数绑定到被选元素的点击事件
+        $(selector).dblclick(function) 	触发或将函数绑定到被选元素的双击事件
+        $(selector).focus(function) 	    触发或将函数绑定到被选元素的获得焦点事件
+        $(selector).mouseover(function) 	触发或将函数绑定到被选元素的鼠标悬停事件
+
+        */
+        
+        
+    </script>
+</head>
+<body>
+    <p>if you click me,i will disappear</p>
+   
+    
+</body>
+</html>

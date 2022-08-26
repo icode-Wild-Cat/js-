@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*自执行函数
+         + 一个会自己调用自己的函数
+         + 当这个函数定义好以后，直接被调用
+
+        自执行函数的意义：
+         + 利用函数的私有作用域，保护变量私有化
+         + 不去污染全局
+
+        语法;
+         => (function(){代码})()
+         => ~function(){代码}()
+         => !function(){代码}()
+         */
+
+         // 1. 自调用函数
+         (function(){
+             console.log('hello world!')
+         })()
+
+         ~function(){
+             console.log('hello world!')
+         }()
+
+         !function(){
+             console.log('hello world!')
+         }()
+    </script>
+</body>
+</html>

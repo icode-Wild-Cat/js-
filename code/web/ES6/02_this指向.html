@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        /*
+            this 指向 ！！ 重要 ！！ 重要 ！！ 重要
+                + this 是一个关键字
+                + 是一个使用在作用域内的关键字
+                    => 要么全局使用
+                     -> this 就是 window
+                    => 要么使用在函数内
+                     -> this 表示的是该函数的 context(执行上下文)
+
+            函数内的 this (私人)
+                + 概念：函数内的 this，和函数如何定义没有关系，和 函数在哪定义没有关系
+                 => 只看函数是如何被调用的（箭头函数除外）
+                + 几种调用方式，决定不同的 this 指向
+                 1. 普通调用
+                  => 函数名()
+                  => 该函数内的 this 指向 window
+                 2. 对象调用
+                  => 对象名.函数名()
+                   -> 对象名['函数名']()
+                   -> 数组[索引]()
+                  => 该函数内的 this 指向 点 前面的内容
+                   -> 也就是那个对象或者数组
+                 3. 定时器处理函数
+                  => setTimeout(函数，时间)
+                     setInterval(函数，时间)
+                  => 该函数内的 this 指向 window
+                 4. 事件处理函数
+                  => 事件源.on事件类型 = 事件处理函数
+                     事件源.addEventListener('事件类型',事件处理函数)
+                  => 该函数内的 this 指向 事件源（谁身上的事件）
+                 5. 自执行函数
+                  => (function () {})()
+                     ~function () {}()
+                     !function () {}()
+                  => 该函数内的 this 指向 window
+                 6. 未完待续。。。。
+
+        */
+
+        // 1. 全局使用 this
+        // console.log(this)
+        // console.log(window)
+        // console.log(window === this)
+
+        // 2-1. 普通调用
+        // function fn() {
+        //     console.log('我是全局 fn 函数')
+        //     console.log(this)
+        //     console.log('-----------------------')
+        // }
+
+        // 标准的 普通调用
+        // fn 这个函数内的 this 就是 window
+        // fn()
+
+
+        // 2-2. 对象调用
+        // 把 fn 变量存储的地址赋值给了 obj 内的 fun成员
+        // 从此以后，obj.fun 和 fn 是一个函数
+        // var obj = { fun: fn}
+
+        // 调用 obj 内 fun 存储的函数，也就是全局的 fn 函数
+        // obj.fun()
+
+
+        // 2-3. 定时器处理函数
+        // 1000ms 以后执行的是 fn 函数
+        // 在这里把 fn 函数当做定时器处理函数来使用了
+        //  setTimeout(fn,1000);  //注意定时器处理函数后面一定要加 ';' 分号
+
+
+        // 2-4. 事件处理函数
+        // var box = document.querySelector('div');
+
+        // 当你点击 box 的时候，执行 fn 函数
+        // 此时，把 fn 函数当做事件处理函数使用了
+        // box.onclick = fn;
+
+
+        // 2-5. 自执行函数
+        // ;(function () {
+        //     console.log('我是自执行函数')
+        //     console.log(this)
+        // })();
+        
+
+        // var a = 100 
+
+        // var obj = {
+        //     a : 200,
+        //     f : function () {
+        //         // 需要看 f 函数是如何被调用的
+        //         // 因为 f 函数是 obj.f() 调用
+        //         // f 函数内的 this 指向 obj
+        //         // this.a 等价于 obj.a
+        //         console.log('f : ',this.a)
+
+        //         function fn() {
+        //             // 需要看 fn 函数是如何被调用的
+        //             // 因为 fn 函数是 fn() 调用
+        //             // fn 函数内的 this 指向 window
+        //             // this.a 等价于 window.a
+        //             console.log('fn : ',this.a)
+
+        //         }
+
+        //         fn()
+        //     }
+        // }
+        // obj.f()
+
+
+        // var a = 100 
+        // var obj = {
+        //     a : 200,
+        //     f : function () {
+        //          // 需要看 f 函数是如何被调用的
+        //          // 根据代码，我是把obj内的f交给了 setTimeout 这个定时器来使用
+        //          // 会在1000ms后，有定时器来调用 obj 内的 f 函数
+        //          // 这个 f 函数是一个定时器处理函数
+        //          // f 函数内的 this 指向 window
+        //          // this.a 等价于 window.a
+        //          console.log('f: ',this.a)
+
+        //          function fn() {
+        //              console.log('fn: ',this.a)
+
+        //          }
+        //          fn()
+        //     }
+        // }
+
+        // setTimeout(obj.f,1000);
+
+
+        // var a = 100 
+        // var obj = {
+        //     a : 200,
+        //     f : function () {
+        //          // 需要看 f 函数是如何被调用的
+        //          // 根据代码，b 函数是 setTimeout 的定时器处理函数
+        //          // obj 内的 f 函数是因为 b 函数内的代码执行而 obj.f() 被调用
+        //          // 所以 f 函数的调用方式是 对象调用
+        //          // f 内的 this 指向 obj
+        //          // this.a 等价于 obj.a
+        //          console.log('f: ',this.a)
+
+        //          function fn() {
+        //              console.log('fn: ',this.a)
+
+        //          }
+        //          fn()
+        //     }
+        // }
+
+        // setTimeout(function b(){
+        //     obj.f()
+        // },1000);
+
+
+
+        var a = 100 
+        var obj = {
+            a : 200,
+            f : function () {
+                 // 需要看 f 函数是如何被调用的
+                 // this 指向 window
+                 console.log('f: ',this.a)
+
+                 function fn() {
+                     console.log('fn: ',this.a)
+
+                 }
+                 fn()
+            }
+        }
+
+        var b = obj.f
+        b()
+
+
+
+        
+
+
+
+    </script>
+    <div></div>
+</body>
+</html>

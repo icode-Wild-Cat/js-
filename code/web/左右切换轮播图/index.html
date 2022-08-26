@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        ol,ul,li {  /*把列表图标去掉*/
+            list-style: none;
+        }
+
+        .banner {
+            width: 600px;
+            height: 400px;
+            border: 1px solid #333;
+            border-radius: 10px;
+            margin: 30px auto;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .banner > .imgBox {
+            width: 500%;
+            height: 100%;
+            display: flex; 
+
+
+            position: absolute;
+            left: 0;
+            top: 0;
+        } 
+
+        .banner > .imgBox > li {
+            flex: 1;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 100px;
+            color: #fff;
+        }
+
+        .banner > .pointBox {
+            width: 200px;
+            height: 30px;
+            background-color: rgba(0,0,0,.5);
+            border-radius: 15px;
+
+            position: absolute;
+            left: 50%;
+            bottom: 30px;
+            transform: translateX(-50%);
+
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+        }
+
+        .banner > .pointBox > li {
+            width: 20px;
+            height: 20px;
+            background-color: #fff;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        
+        .banner > .pointBox > li.active {
+            background-color: red;
+        }
+
+        .banner:hover div {
+            display: flex;
+        }
+        .banner > div {
+            width: 40px;
+            height: 40px;
+            background-color: rgba(0,0,0,.2);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+            cursor: pointer;
+            font-size: 24px;
+
+            display: none;
+
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .banner > div:hover {
+            background-color: rgba(0,0,0,.5);
+        }
+        .banner > div.left {
+            left: 0;
+            border-radius: 0 20px 20px 0;
+        }
+
+        .banner > div.right {
+            right: 0;
+            border-radius: 20px 0 0 20px;
+        }
+    </style>
+    
+</head>
+<body>
+    
+    <!-- 布局解构 -->
+    <!-- banner: 轮播图可视区域 -->
+    <div class="banner">
+        <!-- imgBox:承载所有图片的大盒子 -->
+        <ul class="imgBox">
+            <!-- li:一个图片的小盒子 --> 
+            <li style="background-color: pink;"><img src="https://img.alicdn.com/imgextra/i3/6000000007222/O1CN01VwqVlM23Dj9gmD97m_!!6000000007222-0-octopus.jpg" width="600px" height="400px"></li>
+            <li style="background-color: skyblue;"><img src="https://img.alicdn.com/imgextra/i1/6000000008114/O1CN01MoLOIK29oGRfdQGRx_!!6000000008114-2-octopus.png" width="600px" height="400px"></li>
+            <li style="background-color: red;"><img src="https://img.alicdn.com/imgextra/i1/6000000008114/O1CN01MoLOIK29oGRfdQGRx_!!6000000008114-2-octopus.png" width="600px" height="400px"></li>
+            <li style="background-color: orange;;"><img src="https://img.alicdn.com/imgextra/i1/6000000001844/O1CN01NfTW3a1PUb6wvZfg8_!!6000000001844-2-octopus.png" width="600px" height="400px"></li>
+            <li style="background-color: hotpink;"><img src="https://img.alicdn.com/imgextra/i2/6000000006499/O1CN01tvAkze1xsanRKfMEu_!!6000000006499-0-octopus.jpg" width="600px" height="400px"></li>
+           
+
+
+        </ul>
+
+        <!-- pointBox:承载所有焦点的盒子 -->
+        <ol class="pointBox">
+            <!-- li:一个焦点 -->
+            <!-- <li class="active"></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li> -->
+        </ol>
+
+        <!-- left：左按钮 -->
+        <div class="left">&lt;</div>
+        <!-- right：右按钮 -->
+        <div class="right">&gt;</div>
+    </div>
+    <!-- 建议 .js文件 放在 body 的末尾，否则会出错 -->
+    <script src="../运动函数/utils.js"></script>
+    <script src="./index.js"></script>
+</body>
+</html>

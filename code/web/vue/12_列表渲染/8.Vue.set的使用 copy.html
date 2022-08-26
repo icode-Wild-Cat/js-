@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue.set的使用</title>
+    <!-- 引入Vue -->
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+    <!-- 
+
+    -->
+
+    <!-- 准备好一个容器 -->
+    <div class="root">
+        <button @click="addLeader"></button>
+       <h2>学校名称：{{name}}</h2>
+       <h2>学校地址：{{address}}</h2>
+       <h2>校长：{{leader}}</h2>
+       <hr>
+       <button @click="addSex" style="width:50px;height:30px"></button>
+       <h2>学生姓名：{{student.name}}</h2>
+       <h2>学生年龄：真实:{{student.age.rAge}};对外:{{student.age.sAge}}</h2>
+       <h2>学生性别：{{student.sex}}</h2>
+       <h2>朋友们：</h2>
+       <ul>
+          <li v-for="f in student.friends">姓名:{{f.name}};年龄:{{f.age}}</li>
+       </ul>
+    </div>
+    <script>
+       Vue.config.productionTip = false  // 阻止 vue 在启动时生成生产提示。
+
+    // 创建Vue实例
+    const x = new Vue({
+        el:'.root', 
+        data:{ 
+            name:'尚硅谷',
+            address:'北京',
+            student:{
+                name:'tom',
+                age:{
+                    rAge:40,
+                    sAge:29
+                },
+                friends:[
+                    {name:'jerry',age:35},
+                    {name:'musk',age:40},
+                ]
+            }
+        },
+        methods:{
+            addSex(){
+                Vue.set(this.student,'sex','男')
+            },
+            addLeader(){
+                Vue.set(this,'leader','abc')
+            }
+        }
+
+    })
+
+
+    </script>
+</body>
+</html>
